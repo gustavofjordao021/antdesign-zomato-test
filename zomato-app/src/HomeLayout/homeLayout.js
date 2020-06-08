@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { Layout, Menu, Button } from "antd";
+import { Menu, Button } from "antd";
 import {
   AppstoreOutlined,
   MenuUnfoldOutlined,
@@ -11,28 +11,21 @@ import {
   MailOutlined,
 } from "@ant-design/icons";
 
-const { Header, Content, Footer } = Layout;
-
 const { SubMenu } = Menu;
 
 function HomeLayout() {
-  const [collapsed, toggleCollapsed] = useState("false");
+  const [collapsed, toggleCollapsed] = useState("true");
+
   return (
     <div style={{ width: 256 }}>
       <Button
         type="primary"
-        onClick={() => toggleCollapsed("true")}
+        onClick={() => toggleCollapsed("false")}
         style={{ marginBottom: 16 }}
       >
         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
       </Button>
-      <Menu
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
-        mode="inline"
-        theme="dark"
-        inlineCollapsed={collapsed}
-      >
+      <Menu mode="inline" theme="dark" inlineCollapsed={collapsed}>
         <Menu.Item key="1" icon={<PieChartOutlined />}>
           Option 1
         </Menu.Item>
