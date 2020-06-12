@@ -6,7 +6,7 @@ import HomeLayout from "./HomeLayout/homeLayout.js";
 function App() {
   return (
     <div className="App" style={{ height: "100%" }}>
-      <HomeLayout />
+      <a href="https://localhost:3001/auth/facebook">Login with Facebook</a>
     </div>
   );
 }
