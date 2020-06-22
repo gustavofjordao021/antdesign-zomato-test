@@ -1,91 +1,40 @@
-/*eslint-disable*/
 import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// material-ui core components
-import { List, ListItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import "./Footer.css";
 
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+import { Container, Row, Col } from "reactstrap";
 
-import styles from "assets/jss/material-kit-react/components/footerStyle.js";
-
-const useStyles = makeStyles(styles);
-
-export default function Footer(props) {
-  const classes = useStyles();
-  const { whiteFont } = props;
-  const footerClasses = classNames({
-    [classes.footer]: true,
-    [classes.footerWhiteFont]: whiteFont
-  });
-  const aClasses = classNames({
-    [classes.a]: true,
-    [classes.footerWhiteFont]: whiteFont
-  });
-  return (
-    <footer className={footerClasses}>
-      <div className={classes.container}>
-        <div className={classes.left}>
-          <List className={classes.list}>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Creative Tim
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/presentation?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                About us
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="http://blog.creative-tim.com/?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Blog
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/license?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Licenses
-              </a>
-            </ListItem>
-          </List>
-        </div>
-        <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
-          <a
-            href="https://www.creative-tim.com?ref=mkr-footer"
-            className={aClasses}
-            target="_blank"
-          >
-            Creative Tim
-          </a>{" "}
-          for a better web.
-        </div>
-      </div>
-    </footer>
-  );
+class Login extends React.Component {
+  render() {
+    return (
+      <>
+        <footer className="py-4">
+          <Container>
+            <Row className="align-items-center justify-content-xl-between">
+              <Col xl="6">
+                <div className="copyright text-center text-xl-left text-muted pl-4">
+                  © 2020 Goalify
+                </div>
+              </Col>
+              <Col xl="6">
+                <div className="copyright text-xl-right text-muted pl-4 text-size">
+                  <b>
+                    Made with{" "}
+                    <span id="main-cta goal-list" role="img" aria-label="love">
+                      💙
+                    </span>{" "}
+                  </b>
+                  by Gustavo Jordão at{" "}
+                  <a href="https://www.ironhack.com/en/web-development/miami">
+                    Ironhack Miami
+                  </a>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </footer>
+      </>
+    );
+  }
 }
 
-Footer.propTypes = {
-  whiteFont: PropTypes.bool
-};
+export default Login;

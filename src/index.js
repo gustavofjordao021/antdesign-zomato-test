@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import AuthProvider from "./context/index";
+
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
+
+import "../src/assets/plugins/nucleo/css/nucleo.css";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
-
-serviceWorker.unregister();

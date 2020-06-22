@@ -1,0 +1,21 @@
+.cancel-link {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #5e72e4 !important;
+}
+
+.half-input {
+  width: 45%;
+  margin: 0 !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.update-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}

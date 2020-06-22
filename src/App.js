@@ -1,17 +1,38 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+import "../src/assets/css/argon-dashboard-react.css";
 import "./App.css";
 
-// import LandingPage from "./views/LandingPage/LandingPage.js";
+import Home from "./components/Home/Home";
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import Footer from "./components/Footer/Footer";
+import ApplicationHome from "./components/ApplicationHome/ApplicationHome";
+import GoalDetails from "./components/GoalDetails/GoalDetails";
+import UserProfile from "./components/UserProfile/UserProfile";
+import { AuthContext } from "./context";
 
 function App() {
+  let context = React.useContext(AuthContext);
+
+  React.useEffect(() => {
+    context.isUserLoggedIn();
+  }, []);
+
   return (
-    // <LandingPage />
-    <>
-      <div className="App" style={{ height: "100px" }}>
-        <a href="http://localhost:3001/auth/facebook">Login with Facebook</a>
-        <a href="http://localhost:3001/auth/google">Login with Google</a>
-      </div>
-    </>
+    <div className="App">
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/app" component={ApplicationHome} />
+        <Route exact path="/app/goal-details/:goalId" component={GoalDetails} />
+        <Route exact path="/app/user-profile" component={UserProfile} />
+      </Switch>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   );
 }
 
