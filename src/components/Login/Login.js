@@ -10,7 +10,6 @@ import {
   Alert,
   Button,
   Card,
-  CardHeader,
   CardBody,
   Container,
   FormGroup,
@@ -47,20 +46,39 @@ const Login = () => {
                     id="signup-card"
                     className="bg-secondary shadow border-0 "
                   >
-                    <CardHeader className="bg-transparent brand-logo">
-                      <div className="text-muted mt-2 mb-2 brand-logo">
-                        <img
-                          src={require("../../assets/img/brand/logo-goalify.svg")}
-                          alt="brand-logo"
-                        />
+                    <CardBody className="px-lg-4 py-lg-4">
+                      <div className="text-center mb-2">
+                        <p>Login</p>
+                        <Button
+                          color="secondary"
+                          className="login-button-text mb-2"
+                        >
+                          <img
+                            className="login-button-logo"
+                            alt="login-button-logo"
+                            src="https://d3ptyyxy2at9ui.cloudfront.net/google-41de20.svg"
+                          />
+                          Continue with Google
+                        </Button>
+                        <Button
+                          color="secondary"
+                          className="login-button-text m-0"
+                        >
+                          <img
+                            className="login-button-logo"
+                            alt="login-button-logo"
+                            src="https://d3ptyyxy2at9ui.cloudfront.net/facebook-fadd25.svg"
+                          />
+                          Continue with Facebook
+                        </Button>
                       </div>
-                    </CardHeader>
-                    <CardBody className="px-lg-5 py-lg-5">
-                      <div className="text-center text-muted mb-4">
-                        <p>Login below</p>
+                      <div className="middle-separator">
+                        <div className="text-center my-4 separator"></div>
+                        <span className="px-3">OR</span>
+                        <div className="text-center my-4 separator"></div>
                       </div>
                       <Form onSubmit={handleLoginSubmit}>
-                        <FormGroup>
+                        <FormGroup className="mb-1">
                           <InputGroup className="input-group-alternative mb-3">
                             <InputGroupAddon addonType="prepend">
                               <InputGroupText>
@@ -72,13 +90,13 @@ const Login = () => {
                               name="username"
                               type="text"
                               value={username}
-                              placeholder="Name"
+                              placeholder="Username"
                               autoComplete="username"
                               onChange={handleLoginInput}
                             />
                           </InputGroup>
                         </FormGroup>
-                        <FormGroup>
+                        <FormGroup className="mb-1">
                           <InputGroup className="input-group-alternative">
                             <InputGroupAddon addonType="prepend">
                               <InputGroupText>
@@ -96,7 +114,7 @@ const Login = () => {
                             />
                           </InputGroup>
                         </FormGroup>
-                        <Row className="my-4">
+                        <Row className="my-3">
                           <Col xs="12">
                             <div className="custom-control custom-control-alternative custom-checkbox">
                               <input
@@ -122,7 +140,7 @@ const Login = () => {
                         )}
                         <div className="text-center">
                           <Button
-                            className="mt-4"
+                            className="my-2 login-button-cta"
                             color="primary"
                             type="submit"
                           >

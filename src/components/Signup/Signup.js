@@ -10,7 +10,6 @@ import {
   Alert,
   Button,
   Card,
-  CardHeader,
   CardBody,
   Container,
   FormGroup,
@@ -37,6 +36,8 @@ const Signup = () => {
         } = context.state;
 
         const {
+          handleGoogle,
+          handleFacebook,
           handleSignupInput,
           handleSignupSubmit,
           handleAvatarUpload,
@@ -53,20 +54,41 @@ const Signup = () => {
                     id="signup-card"
                     className="bg-secondary shadow border-0 "
                   >
-                    <CardHeader className="bg-transparent brand-logo">
-                      <div className="text-muted mt-2 mb-2 brand-logo">
-                        <img
-                          src={require("../../assets/img/brand/logo-goalify.svg")}
-                          alt="brand-logo"
-                        />
+                    <CardBody className="px-lg-4 py-lg-3">
+                      <div className="text-center mb-2">
+                        <p>Sign up</p>
+                        <Button
+                          color="secondary"
+                          className="login-button-text mb-2"
+                          onClick={handleGoogle}
+                        >
+                          <img
+                            className="login-button-logo"
+                            alt="login-button-logo"
+                            src="https://d3ptyyxy2at9ui.cloudfront.net/google-41de20.svg"
+                          />
+                          Continue with Google
+                        </Button>
+                        <Button
+                          color="secondary"
+                          className="login-button-text m-0"
+                          onClick={handleFacebook}
+                        >
+                          <img
+                            className="login-button-logo"
+                            alt="login-button-logo"
+                            src="https://d3ptyyxy2at9ui.cloudfront.net/facebook-fadd25.svg"
+                          />
+                          Continue with Facebook
+                        </Button>
                       </div>
-                    </CardHeader>
-                    <CardBody className="px-lg-5 py-lg-3">
-                      <div className="text-center text-muted mb-4">
-                        <p>Sign up below</p>
+                      <div className="middle-separator">
+                        <div className="text-center my-4 separator"></div>
+                        <span className="px-3">OR</span>
+                        <div className="text-center my-4 separator"></div>
                       </div>
                       <Form onSubmit={handleSignupSubmit}>
-                        <FormGroup>
+                        <FormGroup className="mb-0">
                           <InputGroup className="input-group-alternative mb-3">
                             <InputGroupAddon addonType="prepend">
                               <InputGroupText>
@@ -78,13 +100,13 @@ const Signup = () => {
                               name="username"
                               type="text"
                               value={username}
-                              placeholder="Name"
+                              placeholder="Username"
                               autoComplete="username"
                               onChange={handleSignupInput}
                             />
                           </InputGroup>
                         </FormGroup>
-                        <FormGroup>
+                        <FormGroup className="mb-0">
                           <InputGroup className="input-group-alternative mb-3">
                             <InputGroupAddon addonType="prepend">
                               <InputGroupText>
@@ -102,7 +124,7 @@ const Signup = () => {
                             />
                           </InputGroup>
                         </FormGroup>
-                        <FormGroup>
+                        <FormGroup className="mb-3">
                           <InputGroup className="input-group-alternative">
                             <InputGroupAddon addonType="prepend">
                               <InputGroupText>
@@ -203,7 +225,11 @@ const Signup = () => {
                           className="text-center mt-4 mb-3"
                           id="signup-container"
                         >
-                          <Button color="primary" type="submit">
+                          <Button
+                            color="primary"
+                            type="submit"
+                            className="login-button-cta"
+                          >
                             Create account
                           </Button>
                         </div>

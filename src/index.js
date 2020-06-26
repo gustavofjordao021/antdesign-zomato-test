@@ -6,6 +6,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 import "../src/assets/plugins/nucleo/css/nucleo.css";
+import "./index.css";
 
 ReactDOM.render(
   <BrowserRouter>

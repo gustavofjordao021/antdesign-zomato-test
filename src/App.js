@@ -7,9 +7,9 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Footer from "./components/Footer/Footer";
-import ApplicationHome from "./components/ApplicationHome/ApplicationHome";
 import GoalDetails from "./components/GoalDetails/GoalDetails";
 import UserProfile from "./components/UserProfile/UserProfile";
+import ApplicationHome from "./components/ApplicationHome/ApplicationHome";
 import { AuthContext } from "./context";
 
 function App() {
@@ -29,9 +29,7 @@ function App() {
         <Route exact path="/app/goal-details/:goalId" component={GoalDetails} />
         <Route exact path="/app/user-profile" component={UserProfile} />
       </Switch>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 }

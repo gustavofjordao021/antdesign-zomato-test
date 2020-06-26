@@ -12,6 +12,14 @@ const AUTH_SERVICE = {
     return service.post("/auth/signup", userData);
   },
 
+  continueWithGoogle() {
+    return service.get("/auth/google");
+  },
+
+  continueWithFacebook() {
+    return service.get("/auth/facebook");
+  },
+
   login(userData) {
     return service.post("/auth/login", userData);
   },

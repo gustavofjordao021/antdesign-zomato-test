@@ -42,24 +42,15 @@ class Home extends Component {
                             </p>
 
                             <Link to="/signup">
-                              {/* <Button
+                              <Button
                                 className="mt-2 mr-2 mb-2"
                                 color="primary"
                               >
                                 <span id="main-cta" className="m-4">
                                   Start for free
                                 </span>
-                              </Button> */}
+                              </Button>
                             </Link>
-                            <a href="http://localhost:3001/auth/google">
-                              <img
-                                id="google-signup"
-                                src={require("../../assets/img/brand/google-signup-button.png")}
-                                alt="google-signup-button"
-                                href="http://localhost:3001/auth/google"
-                              />
-                            </a>
-
                             <Link to="/login">
                               <Button className="mt-2 mr-2 mb-2" color="link">
                                 <span id="main-cta" className="m-4">
