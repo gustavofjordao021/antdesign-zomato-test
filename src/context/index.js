@@ -51,38 +51,39 @@ class AuthProvider extends React.Component {
   };
 
   handleGoogle = async () => {
-    await AUTH_SERVICE.continueWithGoogle()
-      .then((responseFromServer) => {
-        const {
-          data: { user, errorMessage },
-        } = responseFromServer;
-        if (errorMessage) {
-          this.setState((prevState) => ({
-            errorMessage,
-          }));
-        } else {
-          this.setState((prevState) => ({
-            ...prevState,
-            formLogin: {
-              username: "",
-              password: "",
-            },
-            errorMessage: "",
-            currentUser: user,
-            isLoggedIn: true,
-          }));
-          this.isUserLoggedIn();
-          this.props.history.push("/app");
-        }
-      })
-      .catch((err) => {
-        if (err.response && err.response.data) {
-          this.setState((prevState) => ({
-            ...prevState,
-            message: err.response.data.message,
-          }));
-        }
-      });
+    window.open("http://localhost:3001/auth/google");
+    // await AUTH_SERVICE.continueWithGoogle()
+    //   .then((responseFromServer) => {
+    //     const {
+    //       data: { user, errorMessage },
+    //     } = responseFromServer;
+    //     if (errorMessage) {
+    //       this.setState((prevState) => ({
+    //         errorMessage,
+    //       }));
+    //     } else {
+    //       this.setState((prevState) => ({
+    //         ...prevState,
+    //         formLogin: {
+    //           username: "",
+    //           password: "",
+    //         },
+    //         errorMessage: "",
+    //         currentUser: user,
+    //         isLoggedIn: true,
+    //       }));
+    //       this.isUserLoggedIn();
+    //       this.props.history.push("/app");
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     if (err.response && err.response.data) {
+    //       this.setState((prevState) => ({
+    //         ...prevState,
+    //         message: err.response.data.message,
+    //       }));
+    //     }
+    //   });
   };
 
   handleSignupInput = (e) => {
