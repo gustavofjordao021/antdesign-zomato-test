@@ -51,39 +51,11 @@ class AuthProvider extends React.Component {
   };
 
   handleGoogle = async () => {
-    window.open("http://localhost:3001/auth/google");
-    // await AUTH_SERVICE.continueWithGoogle()
-    //   .then((responseFromServer) => {
-    //     const {
-    //       data: { user, errorMessage },
-    //     } = responseFromServer;
-    //     if (errorMessage) {
-    //       this.setState((prevState) => ({
-    //         errorMessage,
-    //       }));
-    //     } else {
-    //       this.setState((prevState) => ({
-    //         ...prevState,
-    //         formLogin: {
-    //           username: "",
-    //           password: "",
-    //         },
-    //         errorMessage: "",
-    //         currentUser: user,
-    //         isLoggedIn: true,
-    //       }));
-    //       this.isUserLoggedIn();
-    //       this.props.history.push("/app");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     if (err.response && err.response.data) {
-    //       this.setState((prevState) => ({
-    //         ...prevState,
-    //         message: err.response.data.message,
-    //       }));
-    //     }
-    //   });
+    await window.location.replace("http://localhost:3001/auth/google");
+  };
+
+  handleFacebook = async () => {
+    await window.location.replace("http://localhost:3001/auth/facebook");
   };
 
   handleSignupInput = (e) => {
@@ -237,6 +209,7 @@ class AuthProvider extends React.Component {
       syncUser,
       userLogOut,
       handleGoogle,
+      handleFacebook,
       isUserLoggedIn,
       handleLoginInput,
       handleLoginSubmit,
@@ -252,6 +225,7 @@ class AuthProvider extends React.Component {
             syncUser,
             userLogOut,
             handleGoogle,
+            handleFacebook,
             isUserLoggedIn,
             handleLoginInput,
             handleLoginSubmit,

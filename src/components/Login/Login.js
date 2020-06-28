@@ -28,12 +28,17 @@ const Login = () => {
       {(context) => {
         const {
           formLogin: { username, password },
+          isLoggedIn,
           errorMessage,
           successMessage,
-          isLoggedIn,
         } = context.state;
 
-        const { handleLoginInput, handleLoginSubmit } = context;
+        const {
+          handleGoogle,
+          handleFacebook,
+          handleLoginInput,
+          handleLoginSubmit,
+        } = context;
         return (
           <>
             {isLoggedIn ? (
@@ -52,6 +57,7 @@ const Login = () => {
                         <Button
                           color="secondary"
                           className="login-button-text mb-2"
+                          onClick={handleGoogle}
                         >
                           <img
                             className="login-button-logo"
@@ -63,6 +69,7 @@ const Login = () => {
                         <Button
                           color="secondary"
                           className="login-button-text m-0"
+                          onClick={handleFacebook}
                         >
                           <img
                             className="login-button-logo"

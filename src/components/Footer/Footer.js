@@ -20,8 +20,8 @@ const Footer = () => {
                   Made with{" "}
                   <span id="main-cta goal-list" role="img" aria-label="love">
                     💙
-                  </span>{" "}
-                </b>
+                  </span>
+                </b>{" "}
                 by Gustavo Jordão at{" "}
                 <a href="https://www.ironhack.com/en/web-development/miami">
                   Ironhack Miami
