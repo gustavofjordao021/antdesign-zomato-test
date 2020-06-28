@@ -7,19 +7,19 @@ import UserNavbar from "../Navbar/HomeNavBar/HomeNavBar";
 import "./Login.css";
 
 import {
-  Alert,
-  Button,
+  Row,
+  Col,
   Card,
+  Form,
+  Alert,
+  Input,
+  Button,
   CardBody,
   Container,
   FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
   InputGroup,
-  Row,
-  Col,
+  InputGroupText,
+  InputGroupAddon,
 } from "reactstrap";
 
 const Login = () => {
