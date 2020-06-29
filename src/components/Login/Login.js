@@ -27,10 +27,10 @@ const Login = () => {
     <AuthContext.Consumer>
       {(context) => {
         const {
-          formLogin: { username, password },
           isLoggedIn,
           errorMessage,
           successMessage,
+          formLogin: { email, password },
         } = context.state;
 
         const {
@@ -89,16 +89,16 @@ const Login = () => {
                           <InputGroup className="input-group-alternative mb-3">
                             <InputGroupAddon addonType="prepend">
                               <InputGroupText>
-                                <i className="ni ni-hat-3" />
+                                <i className="ni ni-email-83" />
                               </InputGroupText>
                             </InputGroupAddon>
                             <Input
                               id="username"
-                              name="username"
+                              name="email"
                               type="text"
-                              value={username}
-                              placeholder="Username"
-                              autoComplete="username"
+                              value={email}
+                              placeholder="Email"
+                              autoComplete="Email"
                               onChange={handleLoginInput}
                             />
                           </InputGroup>

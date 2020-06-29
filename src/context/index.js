@@ -13,7 +13,7 @@ class AuthProvider extends React.Component {
       avatar: "",
     },
     formLogin: {
-      username: "",
+      email: "",
       password: "",
     },
     currentUser: "",
@@ -163,7 +163,7 @@ class AuthProvider extends React.Component {
           this.setState((prevState) => ({
             ...prevState,
             formLogin: {
-              username: prevState.formLogin.username,
+              email: prevState.formLogin.email,
               password: "",
             },
             errorMessage,
@@ -172,7 +172,7 @@ class AuthProvider extends React.Component {
           this.setState((prevState) => ({
             ...prevState,
             formLogin: {
-              username: "",
+              email: "",
               password: "",
             },
             errorMessage: "",
