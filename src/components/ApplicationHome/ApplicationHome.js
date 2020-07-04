@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
@@ -46,8 +47,8 @@ class ApplicationHome extends Component {
                       userLoggedIn={currentUser}
                       passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
                     />
-                    <Col className="col-8 mt-4 mr-4">
-                      <Card className="fixed-height bg-secondary shadow main-container">
+                    <Col className="col-10 p-0 main-container">
+                      <Card className="fixed-height main-container bg-secondary">
                         {this.state.isGoalFormVisible ? (
                           <NewGoal isDone={this.toggleGoalFormOff} />
                         ) : (

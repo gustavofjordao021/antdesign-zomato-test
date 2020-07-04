@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import {
-  UncontrolledCollapse,
-  Container,
-  Row,
   Col,
+  Row,
   Card,
-  CardHeader,
   Button,
+  CardHeader,
+  Container,
+  UncontrolledCollapse,
 } from "reactstrap";
 
 const GoalSlider = (props) => {
@@ -16,7 +16,7 @@ const GoalSlider = (props) => {
 
   return (
     <>
-      <Col className="col-3 mt-4 ml-4 fixed-height">
+      <Col className="col-2 p-0 fixed-height">
         <Card className="fixed-height bg-secondary shadow column-container">
           <CardHeader className="p-1">
             <Row className="align-items-center">
