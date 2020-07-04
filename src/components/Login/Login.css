@@ -16,14 +16,15 @@
 }
 
 .separator {
-  height: 0px;
+  height: 0px !important;
   border-top: 1px solid #ddd;
   border-top: 1px solid #ddd;
-  position: relative;
+  position: relative !important;
 }
 
 .middle-separator {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 100%;
