@@ -65,7 +65,7 @@ const Signup = () => {
                           <img
                             className="login-button-logo"
                             alt="login-button-logo"
-                            src="https://d3ptyyxy2at9ui.cloudfront.net/google-41de20.svg"
+                            src={require("../../assets/img/brand/google-41de20.svg")}
                           />
                           Continue with Google
                         </Button>
@@ -77,7 +77,7 @@ const Signup = () => {
                           <img
                             className="login-button-logo"
                             alt="login-button-logo"
-                            src="https://d3ptyyxy2at9ui.cloudfront.net/facebook-fadd25.svg"
+                            src={require("../../assets/img/brand/facebook-fadd25.svg")}
                           />
                           Continue with Facebook
                         </Button>
