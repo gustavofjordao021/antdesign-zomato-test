@@ -50,7 +50,10 @@ class ApplicationHome extends Component {
                     <Col className="col-10 p-0 main-container">
                       <Card className="fixed-height main-container bg-secondary">
                         {this.state.isGoalFormVisible ? (
-                          <NewGoal isDone={this.toggleGoalFormOff} />
+                          <NewGoal
+                            isDone={this.toggleGoalFormOff}
+                            isOpen={this.state.isGoalFormVisible}
+                          />
                         ) : (
                           <>
                             <span className="text-center m-4">
