@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import GOAL_SERVICE from "../../services/GoalService";
+import PLANT_SERVICE from "../../services/PlantService";
 import { AuthContext } from "../../context/index";
 
-import "./NewGoal.css";
+import "../NewPlant/NewPlant.css";
 
 import {
   Card,
@@ -21,13 +21,12 @@ import {
 } from "reactstrap";
 
 const DEFAULT_STATE = {
-  goalName: "",
-  goalDescription: "",
-  goalDueDate: "",
-  goalTarget: "",
+  plantName: "",
+  plantPicture: "",
+  plantDate: "",
 };
 
-class newGoalForm extends Component {
+class newPlantForm extends Component {
   state = {
     ...DEFAULT_STATE,
     errorMessage: "",
@@ -43,11 +42,11 @@ class newGoalForm extends Component {
     this.setState({ [name]: value });
   };
 
-  handleNewGoalSubmit = (e, user, cb, toggle) => {
+  handleNewPlantSubmit = (e, user, cb, toggle) => {
     e.preventDefault();
-    GOAL_SERVICE.newGoal({
+    PLANT_SERVICE.newPlant({
       ...this.state,
-      goalOwner: user._id,
+      plantOwner: user._id,
     })
       .then((responseFromServer) => {
         const { currentUser } = responseFromServer.data;
@@ -75,7 +74,7 @@ class newGoalForm extends Component {
   };
 
   render() {
-    const { goalName, goalDueDate, goalTarget } = this.state;
+    const { plantName, plantPicture, plantDate } = this.state;
     return (
       <AuthContext.Consumer>
         {(context) => {
@@ -93,7 +92,7 @@ class newGoalForm extends Component {
                 >
                   <CardHeader className="bg-transparent brand-logo">
                     <div className="text-center">
-                      <h2 className="title">Add new goal</h2>
+                      <h2 className="title">Add your plant</h2>
                       <p className="mb-0 text-muted">
                         To create your new goal, please input its name, a target
                         value (could be X books read, or % change in body
@@ -104,46 +103,46 @@ class newGoalForm extends Component {
                   <CardBody className="px-lg-5 py-lg-5">
                     <Form
                       onSubmit={(e) =>
-                        this.handleNewGoalSubmit(e, currentUser, syncUser)
+                        this.handleNewPlantSubmit(e, currentUser, syncUser)
                       }
                     >
-                      <FormGroup>
-                        <InputGroup className="input-group-alternative mb-3">
+                      <FormGroup className="mb-3">
+                        <InputGroup className="input-group-alternative mb-2">
                           <InputGroupAddon addonType="prepend">
-                            <InputGroupText className="input-label p-2 text-center">
+                            <InputGroupText className="input-label p-1 text-center">
                               Goal name
                             </InputGroupText>
                           </InputGroupAddon>
                           <Input
                             className="pl-2"
-                            id="goalName"
-                            name="goalName"
+                            id="plantName"
+                            name="plantName"
                             type="text"
                             placeholder="Example: Read more books"
-                            value={goalName}
+                            value={plantName}
                             onChange={this.onChangeHandler}
                           ></Input>
                         </InputGroup>
                       </FormGroup>
-                      <FormGroup>
+                      <FormGroup className="mb-3">
                         <InputGroup className="input-group-alternative">
                           <InputGroupAddon addonType="prepend">
-                            <InputGroupText className="input-label p-2 text-center">
+                            <InputGroupText className="input-label p-1 text-center">
                               Due date
                             </InputGroupText>
                           </InputGroupAddon>
                           <Input
                             className="pl-2"
-                            id="goalDueDate"
-                            name="goalDueDate"
+                            id="plantDate"
+                            name="plantDate"
                             type="date"
                             placeholder="Example: 02/29/2020"
-                            value={goalDueDate}
+                            value={plantDate}
                             onChange={this.onChangeHandler}
                           />
                         </InputGroup>
                       </FormGroup>
-                      <FormGroup>
+                      {/* <FormGroup>
                         <InputGroup className="input-group-alternative">
                           <InputGroupAddon addonType="prepend">
                             <InputGroupText className="input-label p-2 text-center">
@@ -160,7 +159,7 @@ class newGoalForm extends Component {
                             onChange={this.onChangeHandler}
                           />
                         </InputGroup>
-                      </FormGroup>
+                      </FormGroup> */}
                       {errorMessage ? (
                         <Alert color="danger">{errorMessage}</Alert>
                       ) : successMessage ? (
@@ -174,7 +173,7 @@ class newGoalForm extends Component {
                           color="primary"
                           type="submit"
                         >
-                          Add new goal
+                          Add plant
                         </Button>
                         <Button
                           className="mt-2 mr-2 mb-2 cancel-link"
@@ -196,4 +195,4 @@ class newGoalForm extends Component {
   }
 }
 
-export default newGoalForm;
+export default newPlantForm;

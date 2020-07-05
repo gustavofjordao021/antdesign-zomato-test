@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { AuthContext } from "../../context/index";
-import GOAL_SERVICE from "../../services/GoalService";
+import PLANT_SERVICE from "../../services/PlantService";
 
 import "./UpdateGoal.css";
 
@@ -40,7 +40,7 @@ class UpdateGoal extends Component {
   handleUpdateGoalSubmit = (e, cb) => {
     const { goalId } = this.state;
     e.preventDefault();
-    GOAL_SERVICE.updateGoal(goalId, this.state)
+    PLANT_SERVICE.updateGoal(goalId, this.state)
       .then((responseFromServer) => {
         cb(responseFromServer.data);
         const {
@@ -73,7 +73,7 @@ class UpdateGoal extends Component {
 
   handleGoalDelete = () => {
     const { goalId } = this.state;
-    GOAL_SERVICE.deleteGoal(goalId)
+    PLANT_SERVICE.deleteGoal(goalId)
       .then((responseFromServer) => {
         this.props.history.push("/app");
         this.props.syncUser(responseFromServer.data);

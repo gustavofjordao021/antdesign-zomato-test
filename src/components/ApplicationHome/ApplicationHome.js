@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
-import NewGoal from "../NewGoal/NewGoal";
+import NewPlant from "../NewPlant/NewPlant";
 import GoalSlider from "../GoalSlider/GoalSlider";
 import UserNavBar from "../Navbar/UserNavBar/UserNavBar";
 
@@ -50,7 +50,7 @@ class ApplicationHome extends Component {
                     <Col className="col-10 p-0 main-container">
                       <Card className="fixed-height main-container bg-secondary">
                         {this.state.isGoalFormVisible ? (
-                          <NewGoal
+                          <NewPlant
                             isDone={this.toggleGoalFormOff}
                             isOpen={this.state.isGoalFormVisible}
                           />

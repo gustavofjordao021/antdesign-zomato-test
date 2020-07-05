@@ -4,13 +4,13 @@ import { Redirect } from "react-router-dom";
 import UserNavBar from "../Navbar/UserNavBar/UserNavBar";
 import UpdateGoal from "../UpdateGoal/UpdateGoal";
 import GoalSlider from "../GoalSlider/GoalSlider";
-import NewGoal from "../NewGoal/NewGoal";
+import NewPlant from "../NewPlant/NewPlant";
 import NewAction from "../NewAction/NewAction";
 import ActionLine from "../ActionLine/ActionLine";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 import { AuthContext } from "../../context/index";
-import GOAL_SERVICE from "../../services/GoalService";
+import PLANT_SERVICE from "../../services/PlantService";
 import ACTION_SERVICE from "../../services/ActionService";
 
 import "./GoalDetails.css";
@@ -42,7 +42,7 @@ class GoalDetails extends Component {
 
   componentDidMount = () => {
     this._isMounted = true;
-    GOAL_SERVICE.retrieveGoals()
+    PLANT_SERVICE.retrieveGoals()
       .then(async (responseFromServer) => {
         const goalId = this.props.match.params;
         let selectedGoal = responseFromServer.data.filter(
@@ -98,7 +98,7 @@ class GoalDetails extends Component {
   };
 
   toggleActionFormOff = () => {
-    GOAL_SERVICE.retrieveGoals()
+    PLANT_SERVICE.retrieveGoals()
       .then((responseFromServer) => {
         const goalId = this.props.match.params;
         let selectedGoal = responseFromServer.data.filter(
@@ -126,7 +126,7 @@ class GoalDetails extends Component {
   };
 
   toggleGoalDetailsOff = () => {
-    GOAL_SERVICE.retrieveGoals()
+    PLANT_SERVICE.retrieveGoals()
       .then((responseFromServer) => {
         const goalId = this.props.match.params;
         let selectedGoal = responseFromServer.data.filter(
@@ -261,7 +261,7 @@ class GoalDetails extends Component {
                     <Col className="col-8 mt-4 mr-4">
                       <Card className="fixed-height bg-secondary shadow main-container">
                         {this.state.isGoalFormVisible ? (
-                          <NewGoal isDone={this.toggleGoalFormOff} />
+                          <NewPlant isDone={this.toggleGoalFormOff} />
                         ) : (
                           <Card
                             id="new-goal-form"
