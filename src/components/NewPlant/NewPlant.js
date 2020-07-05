@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import ReactDatetime from "react-datetime";
 import PLANT_SERVICE from "../../services/PlantService";
 import { AuthContext } from "../../context/index";
 
@@ -40,6 +41,11 @@ class newPlantForm extends Component {
   onChangeHandler = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  onTimeChangeHandler = (event) => {
+    console.log(event._d);
+    this.setState({ plantDate: event._d });
   };
 
   handleNewPlantSubmit = (e, user, cb, toggle) => {
@@ -110,7 +116,7 @@ class newPlantForm extends Component {
                         <InputGroup className="input-group-alternative mb-2">
                           <InputGroupAddon addonType="prepend">
                             <InputGroupText className="input-label p-1 text-center">
-                              Goal name
+                              Plant name
                             </InputGroupText>
                           </InputGroupAddon>
                           <Input
@@ -118,7 +124,7 @@ class newPlantForm extends Component {
                             id="plantName"
                             name="plantName"
                             type="text"
-                            placeholder="Example: Read more books"
+                            placeholder=" Example: Read more books"
                             value={plantName}
                             onChange={this.onChangeHandler}
                           ></Input>
@@ -131,14 +137,12 @@ class newPlantForm extends Component {
                               Due date
                             </InputGroupText>
                           </InputGroupAddon>
-                          <Input
-                            className="pl-2"
-                            id="plantDate"
-                            name="plantDate"
-                            type="date"
-                            placeholder="Example: 02/29/2020"
-                            value={plantDate}
-                            onChange={this.onChangeHandler}
+                          <ReactDatetime
+                            inputProps={{
+                              placeholder: "Adoption date",
+                            }}
+                            onChange={this.onTimeChangeHandler}
+                            timeFormat={false}
                           />
                         </InputGroup>
                       </FormGroup>
