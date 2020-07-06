@@ -7,19 +7,19 @@ import UserNavbar from "../Navbar/HomeNavBar/HomeNavBar";
 import "./Signup.css";
 
 import {
+  Col,
+  Row,
+  Card,
+  Form,
+  Input,
   Alert,
   Button,
-  Card,
   CardBody,
   Container,
   FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
   InputGroup,
-  Row,
-  Col,
+  InputGroupText,
+  InputGroupAddon,
 } from "reactstrap";
 
 const Signup = () => {
@@ -28,11 +28,11 @@ const Signup = () => {
       {(context) => {
         const {
           formSignup: { username, email, password },
-          errorMessage,
-          successMessage,
           isLoggedIn,
-          avatarUploaded,
+          errorMessage,
           avatarFileName,
+          avatarUploaded,
+          successMessage,
         } = context.state;
 
         const {

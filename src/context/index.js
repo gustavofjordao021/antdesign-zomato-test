@@ -21,6 +21,7 @@ class AuthProvider extends React.Component {
     successMessage: "",
     avatarUploaded: false,
     avatarFileName: "",
+    isLoading: false,
     isLoggedIn:
       this.currentUser === ""
         ? false

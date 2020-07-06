@@ -12,6 +12,10 @@ const PLANT_SERVICE = {
     return service.post("/app/create-plant", newPlantData);
   },
 
+  uploadPlantImage(plantImage) {
+    return service.post("/app/plant-image-upload", plantImage);
+  },
+
   retrieveGoals() {
     return service.get(`/app/all-goals`);
   },
