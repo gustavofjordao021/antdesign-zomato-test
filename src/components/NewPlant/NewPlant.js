@@ -160,7 +160,7 @@ class newPlantForm extends Component {
                             id="plantName"
                             name="plantName"
                             type="text"
-                            placeholder=" Example: Read more books"
+                            placeholder="Thyme after thyme"
                             value={plantName}
                             onChange={this.onChangeHandler}
                           ></Input>

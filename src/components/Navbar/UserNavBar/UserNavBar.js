@@ -31,8 +31,9 @@ class UserNavBar extends Component {
             <Navbar
               className="navbar-horizontal navbar-dark bg-primary"
               expand="lg"
+              id="navbar"
             >
-              <Container>
+              <Container id="navbar-container">
                 <Link to="/app" className="navbar-nav navbar-brand">
                   <div className="center-logo">
                     <img

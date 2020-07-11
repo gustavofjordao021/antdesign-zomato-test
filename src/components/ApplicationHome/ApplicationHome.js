@@ -41,13 +41,12 @@ class ApplicationHome extends Component {
                 <Redirect to="/login" />
               ) : (
                 <>
-                  <UserNavBar />
                   <Row className="app-container">
                     <GoalSlider
                       userLoggedIn={currentUser}
                       passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
                     />
-                    <Col className="col-10 p-0 main-container">
+                    <Col className="p-0 main-container">
                       <Card className="fixed-height main-container bg-secondary">
                         {this.state.isGoalFormVisible ? (
                           <NewPlant

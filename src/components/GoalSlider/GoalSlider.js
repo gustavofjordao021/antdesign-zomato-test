@@ -1,72 +1,62 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import {
-  Col,
-  Row,
-  Card,
-  Button,
-  CardHeader,
-  Container,
-  UncontrolledCollapse,
-} from "reactstrap";
+import "./GoalSlider.css";
+
+import { Col, Card, Button, NavItem, Container } from "reactstrap";
 
 const GoalSlider = (props) => {
   const { userLoggedIn, passedDownToggleGoalForm } = props;
 
   return (
     <>
-      <Col className="col-2 p-0 fixed-height">
-        <Card className="fixed-height bg-secondary shadow column-container">
-          <CardHeader className="p-1">
-            <Row className="align-items-center">
-              <Col>
-                <Button color="link" id="toggler" className="toggling-button">
-                  <h2 className="mb-0 title">Goals</h2>
-                  <i className="ni ni-bold-left"></i>
-                </Button>
-              </Col>
-            </Row>
-          </CardHeader>
+      <Col className="p-0 fixed-height navbar-vertical" id="overflow-nav">
+        <Card
+          className="fixed-height bg-secondary shadow column-container"
+          id="nav-content"
+        >
           <Container className="goal-container">
-            <UncontrolledCollapse toggler="#toggler">
-              {userLoggedIn ? (
-                userLoggedIn.goals?.length > 0 ? (
-                  userLoggedIn.goals.map((goal, index) => {
-                    const { goalName, _id } = goal;
-                    return (
-                      <Link
-                        to={`/app/goal-details/${_id}`}
-                        key={index}
-                        className="btn btn-link m-1"
-                      >
-                        <span
-                          id="main-cta goal-list"
-                          className="m-4"
-                          role="img"
-                          aria-label="goal"
-                        >
-                          🎯 {goalName}
-                        </span>
-                      </Link>
-                    );
-                  })
-                ) : (
-                  <>
-                    <div className="text-center text-muted m-4">
-                      <p className="m-0">
-                        You have no goals!{" "}
-                        <span role="img" aria-label="shocked">
-                          😱
-                        </span>
-                      </p>
-                    </div>
-                  </>
-                )
-              ) : (
-                <span></span>
-              )}
-            </UncontrolledCollapse>
+            <Link to="/app" className="navbar-nav navbar-brand">
+              <div className="center-logo">
+                <img
+                  alt="reversed logo"
+                  src={require("../../assets/img/brand/logo-goalify.svg")}
+                  className="mr-2"
+                />{" "}
+                <span className="hello-user" id="center-logo">
+                  Goalify
+                </span>
+              </div>
+            </Link>{" "}
+            {userLoggedIn ? (
+              <>
+                <NavItem className="mr-3">
+                  <Link
+                    to={"/app/user-profile"}
+                    className="hello-user text-muted"
+                  >
+                    Welcome,
+                    <span>
+                      <img
+                        src={userLoggedIn.avatar}
+                        className="avatar-sm rounded-circle m-2"
+                        alt="user-logo"
+                      />
+                    </span>
+                    <b>{userLoggedIn.username}</b>
+                  </Link>
+                </NavItem>
+              </>
+            ) : (
+              <span></span>
+            )}
+            <NavItem>
+              <Link to={"/app/user-profile"}>
+                <Button color="default" type="button">
+                  Profile
+                </Button>
+              </Link>
+            </NavItem>
           </Container>
           <div className="button-container mb-4">
             <div className="full-width ml-3 mr-3">

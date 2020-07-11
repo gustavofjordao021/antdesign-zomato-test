@@ -1,5 +1,8 @@
-.navbar {
-  padding: 0 !important;
+#navbar {
+  padding: 0px 0px !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 100%;
 }
 
 .navbar-nav {
@@ -18,7 +21,12 @@
 
 .rounded-circle {
   border-radius: 50% !important;
-  box-shadow: 0 0px 5px 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0px 5px 1px rgba(204, 198, 198, 0.15);
+}
+
+#navbar-container {
+  margin: 0 40px !important;
+  max-width: 100% !important;
 }
 
 #center-logo {
