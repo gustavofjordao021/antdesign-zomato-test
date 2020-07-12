@@ -4,8 +4,7 @@ import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
 import NewPlant from "../NewPlant/NewPlant";
-import GoalSlider from "../GoalSlider/GoalSlider";
-import UserNavBar from "../Navbar/UserNavBar/UserNavBar";
+import MainNav from "../Navbar/MainNav/MainNav";
 
 import "./ApplicationHome.css";
 
@@ -13,20 +12,20 @@ import { Row, Col, Card, Button } from "reactstrap";
 
 class ApplicationHome extends Component {
   state = {
-    isGoalFormVisible: false,
+    isNewPlantFormVisible: false,
   };
 
-  toggleGoalFormOn = () => {
+  toggleNewPlantFormOn = () => {
     this.setState((prevState) => ({
       ...prevState,
-      isGoalFormVisible: true,
+      isNewPlantFormVisible: true,
     }));
   };
 
-  toggleGoalFormOff = () => {
+  toggleNewPlantFormOff = () => {
     this.setState((prevState) => ({
       ...prevState,
-      isGoalFormVisible: false,
+      isNewPlantFormVisible: false,
     }));
   };
 
@@ -42,16 +41,18 @@ class ApplicationHome extends Component {
               ) : (
                 <>
                   <Row className="app-container">
-                    <GoalSlider
+                    <MainNav
                       userLoggedIn={currentUser}
-                      passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
+                      passedDownToggleNewPlantForm={() =>
+                        this.toggleNewPlantFormOn()
+                      }
                     />
                     <Col className="p-0 main-container">
                       <Card className="fixed-height main-container bg-secondary">
-                        {this.state.isGoalFormVisible ? (
+                        {this.state.isNewPlantFormVisible ? (
                           <NewPlant
-                            isDone={this.toggleGoalFormOff}
-                            isOpen={this.state.isGoalFormVisible}
+                            isDone={this.toggleNewPlantFormOff}
+                            isOpen={this.state.isNewPlantFormVisible}
                           />
                         ) : (
                           <>
@@ -64,7 +65,7 @@ class ApplicationHome extends Component {
                                 id="secondary-goal-add"
                                 color="secondary"
                                 className="align-items-center title"
-                                onClick={() => this.toggleGoalFormOn()}
+                                onClick={() => this.toggleNewPlantFormOn()}
                               >
                                 <span id="main-cta">Add New Goal</span>
                               </Button>

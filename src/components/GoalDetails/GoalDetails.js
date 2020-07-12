@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
-import UserNavBar from "../Navbar/UserNavBar/UserNavBar";
-import UpdateGoal from "../UpdateGoal/UpdateGoal";
-import GoalSlider from "../GoalSlider/GoalSlider";
 import NewPlant from "../NewPlant/NewPlant";
 import NewAction from "../NewAction/NewAction";
+import MainNav from "../Navbar/MainNav/MainNav";
 import ActionLine from "../ActionLine/ActionLine";
+import UpdateGoal from "../UpdateGoal/UpdateGoal";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 import { AuthContext } from "../../context/index";
@@ -251,9 +250,8 @@ class GoalDetails extends Component {
                 <Redirect to="/login" />
               ) : (
                 <>
-                  <UserNavBar />
                   <Row className="app-container">
-                    <GoalSlider
+                    <MainNav
                       userLoggedIn={currentUser}
                       passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
                       passedDownGoalSelector={(key) => this.updateGoals(key)}

@@ -1,0 +1,19 @@
+#overflow-nav {
+  overflow: auto;
+  z-index: 200;
+  display: flex;
+  flex: 0 0 250px;
+}
+
+#nav-content {
+  width: 100%;
+}
+
+.nav-button {
+  width: 100% !important;
+  list-style: none !important;
+}
+
+.nav-button-item {
+  border-color: transparent !important;
+}

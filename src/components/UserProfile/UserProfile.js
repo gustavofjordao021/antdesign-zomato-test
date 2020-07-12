@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
-import UserNavBar from "../Navbar/UserNavBar/UserNavBar";
-import GoalSlider from "../GoalSlider/GoalSlider";
+import MainNav from "../Navbar/MainNav/MainNav";
 
 import "./UserProfile.css";
 
@@ -39,9 +38,8 @@ class UserProfile extends Component {
                 <Redirect to="/login" />
               ) : (
                 <>
-                  <UserNavBar />
                   <Row className="app-container">
-                    <GoalSlider
+                    <MainNav
                       userLoggedIn={currentUser}
                       passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
                     />
