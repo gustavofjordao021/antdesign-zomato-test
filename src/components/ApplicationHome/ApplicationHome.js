@@ -5,10 +5,11 @@ import { AuthContext } from "../../context/index";
 
 import MainNav from "../Navbar/MainNav/MainNav";
 import NewCollection from "../NewCollection/NewCollection";
+import CollectionBlock from "../CollectionBlock/CollectionBlock";
 
 import "./ApplicationHome.css";
 
-import { Row, Col, Card, Button } from "reactstrap";
+import { Row, Col, Card, Button, CardDeck } from "reactstrap";
 
 class ApplicationHome extends Component {
   state = {
@@ -64,30 +65,38 @@ class ApplicationHome extends Component {
                     />
                     <Col className="p-0 main-container">
                       <Card className="fixed-height main-container bg-secondary">
-                        {this.state.isNewCollectionFormVisible ? (
-                          <NewCollection
-                            isOpen={this.state.isNewCollectionFormVisible}
-                            isDone={this.toggleNewCollectionFormOff}
-                          />
-                        ) : (
-                          <>
-                            <span className="text-center m-4">
-                              <p className="text-muted card-text">
-                                Select a collection on the left, or click below
-                                to create a new collection
-                              </p>
-                              <Button
-                                id="secondary-goal-add"
-                                color="secondary"
-                                className="align-items-center title"
-                                onClick={() => this.toggleNewCollectionFormOn()}
-                              >
-                                <i className="ni ni-fat-add"></i>
-                                <span id="main-cta">Collection</span>
-                              </Button>
-                            </span>
-                          </>
-                        )}
+                        <CardDeck>
+                          {this.state.isNewCollectionFormVisible ? (
+                            <NewCollection
+                              isOpen={this.state.isNewCollectionFormVisible}
+                              isDone={this.toggleNewCollectionFormOff}
+                            />
+                          ) : currentUser.collections.length > 0 ? (
+                            currentUser.collections.map((collection, id) => (
+                              <CollectionBlock />
+                            ))
+                          ) : (
+                            <>
+                              <span className="text-center m-4">
+                                <p className="text-muted card-text">
+                                  Select a collection on the left, or click
+                                  below to create a new collection
+                                </p>
+                                <Button
+                                  id="secondary-goal-add"
+                                  color="secondary"
+                                  className="align-items-center title"
+                                  onClick={() =>
+                                    this.toggleNewCollectionFormOn()
+                                  }
+                                >
+                                  <i className="ni ni-fat-add"></i>
+                                  <span id="main-cta">Collection</span>
+                                </Button>
+                              </span>
+                            </>
+                          )}
+                        </CardDeck>
                       </Card>
                     </Col>
                   </Row>
