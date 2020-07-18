@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NavOption from "../NavOption/NavOption";
 import { AuthContext } from "../../../context/index";
 
 import "./MainNav.css";
@@ -7,11 +8,12 @@ import "./MainNav.css";
 import { Col, Card, Button, NavItem, Container } from "reactstrap";
 
 const MainNav = (props) => {
-  const { passedDownToggleNewPlantForm } = props;
+  const { passedDownToggleNewCollectionForm } = props;
   return (
     <AuthContext.Consumer>
       {(context) => {
         const { userLogOut } = context;
+        const { currentUser } = context.state;
         return (
           <>
             <Col className="p-0 fixed-height navbar-vertical" id="overflow-nav">
@@ -21,7 +23,7 @@ const MainNav = (props) => {
               >
                 <Container className="goal-container p-0">
                   <Link to="/app" className="navbar-nav navbar-brand">
-                    <div className="center-logo">
+                    <div className="flex-center center-logo">
                       <div className="logo-divider">
                         <img
                           alt="reversed logo"
@@ -30,98 +32,45 @@ const MainNav = (props) => {
                         />
                       </div>{" "}
                       <div>
-                        <span className="hello-user" id="center-logo">
-                          Goalify
-                        </span>
+                        <span className="hello-user">Goalify</span>
                       </div>
                     </div>
                   </Link>{" "}
                   <Container className="goal-container p-0">
                     <NavItem className="nav-button">
-                      <Link to={"/app"}>
-                        <Button
-                          color="secondary"
-                          outline
-                          block
-                          type="button"
-                          className="nav-button-item"
-                        >
-                          <div className="center-logo">
-                            <img
-                              alt="home-icon"
-                              src={require("../../../assets/img/icons/home-52.svg")}
-                              className="mr-2"
-                            />{" "}
-                            <span className="hello-user" id="center-logo">
-                              Home
-                            </span>
-                          </div>
-                        </Button>
-                      </Link>
+                      <NavOption icon="home-52.svg" page="Home" linkTo="/app" />
                     </NavItem>
                   </Container>
                   <Container className="goal-container p-0">
                     <span className="hello-user" id="center-logo">
                       Collections
                     </span>
+                    {currentUser.collections.map((collection, id) => (
+                      <NavOption
+                        key={id}
+                        icon="folder-15.svg"
+                        page={collection.collectionName}
+                        linkTo={`/app/collections/${collection._id}`}
+                      />
+                    ))}
                   </Container>
                   <Container className="goal-container p-0">
                     <span className="hello-user" id="center-logo">
                       Settings
                     </span>
                     <NavItem className="nav-button">
-                      <Link to={"/app/user-profile"}>
-                        <Button
-                          color="secondary"
-                          outline
-                          block
-                          type="button"
-                          className="nav-button-item"
-                        >
-                          <div className="center-logo">
-                            <div className="logo-divider">
-                              <img
-                                alt="profile-icon"
-                                src={require("../../../assets/img/icons/single-01.svg")}
-                                className="mr-2"
-                              />
-                            </div>{" "}
-                            <div>
-                              <span className="hello-user" id="center-logo">
-                                Profile
-                              </span>
-                            </div>
-                          </div>
-                        </Button>
-                      </Link>
+                      <NavOption
+                        icon="single-01.svg"
+                        page="Profile"
+                        linkTo="/app/user-profile"
+                      />
                     </NavItem>
                     <NavItem className="nav-button">
-                      <Link>
-                        <Button
-                          color="secondary"
-                          outline
-                          block
-                          type="button"
-                          className="nav-button-item"
-                          onClick={userLogOut}
-                        >
-                          <div className="center-logo">
-                            <div className="logo-divider">
-                              <img
-                                alt="logout-icon"
-                                src={require("../../../assets/img/icons/lock.svg")}
-                                className="mr-2"
-                              />
-                            </div>
-                            <div>
-                              {" "}
-                              <span className="hello-user" id="center-logo">
-                                Logout
-                              </span>
-                            </div>
-                          </div>
-                        </Button>
-                      </Link>
+                      <NavOption
+                        icon="lock.svg"
+                        page="Logout"
+                        action={userLogOut}
+                      />
                     </NavItem>
                   </Container>
                 </Container>
@@ -132,10 +81,10 @@ const MainNav = (props) => {
                   <Button
                     color="primary"
                     className="align-items-center"
-                    onClick={() => passedDownToggleNewPlantForm()}
+                    onClick={() => passedDownToggleNewCollectionForm()}
                   >
                     <i className="ni ni-fat-add"></i>
-                    <span id="main-cta">Add New Goal</span>
+                    <span id="main-cta">Collection</span>
                   </Button>
                 </div>
               </Card>

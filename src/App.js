@@ -33,7 +33,7 @@ const App = () => {
               <Route exact path="/app" component={ApplicationHome} />
               <Route
                 exact
-                path="/app/goal-details/:goalId"
+                path="/app/collections/:collectionId"
                 component={GoalDetails}
               />
               <Route exact path="/app/user-profile" component={UserProfile} />

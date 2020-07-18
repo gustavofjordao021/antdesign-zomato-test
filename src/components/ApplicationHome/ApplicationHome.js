@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
-import NewPlant from "../NewPlant/NewPlant";
 import MainNav from "../Navbar/MainNav/MainNav";
+import NewCollection from "../NewCollection/NewCollection";
 
 import "./ApplicationHome.css";
 
@@ -12,20 +12,35 @@ import { Row, Col, Card, Button } from "reactstrap";
 
 class ApplicationHome extends Component {
   state = {
-    isNewPlantFormVisible: false,
+    // isNewPlantFormVisible: false,
+    isNewCollectionFormVisible: false,
   };
 
-  toggleNewPlantFormOn = () => {
+  // toggleNewPlantFormOn = () => {
+  //   this.setState((prevState) => ({
+  //     ...prevState,
+  //     isNewPlantFormVisible: true,
+  //   }));
+  // };
+
+  // toggleNewPlantFormOff = () => {
+  //   this.setState((prevState) => ({
+  //     ...prevState,
+  //     isNewPlantFormVisible: false,
+  //   }));
+  // };
+
+  toggleNewCollectionFormOn = () => {
     this.setState((prevState) => ({
       ...prevState,
-      isNewPlantFormVisible: true,
+      isNewCollectionFormVisible: true,
     }));
   };
 
-  toggleNewPlantFormOff = () => {
+  toggleNewCollectionFormOff = () => {
     this.setState((prevState) => ({
       ...prevState,
-      isNewPlantFormVisible: false,
+      isNewCollectionFormVisible: false,
     }));
   };
 
@@ -43,31 +58,32 @@ class ApplicationHome extends Component {
                   <Row className="app-container">
                     <MainNav
                       userLoggedIn={currentUser}
-                      passedDownToggleNewPlantForm={() =>
-                        this.toggleNewPlantFormOn()
+                      passedDownToggleNewCollectionForm={
+                        this.toggleNewCollectionFormOn
                       }
                     />
                     <Col className="p-0 main-container">
                       <Card className="fixed-height main-container bg-secondary">
-                        {this.state.isNewPlantFormVisible ? (
-                          <NewPlant
-                            isDone={this.toggleNewPlantFormOff}
-                            isOpen={this.state.isNewPlantFormVisible}
+                        {this.state.isNewCollectionFormVisible ? (
+                          <NewCollection
+                            isOpen={this.state.isNewCollectionFormVisible}
+                            isDone={this.toggleNewCollectionFormOff}
                           />
                         ) : (
                           <>
                             <span className="text-center m-4">
                               <p className="text-muted card-text">
-                                Select a goal on the left, or click below to
-                                create a new goal
+                                Select a collection on the left, or click below
+                                to create a new collection
                               </p>
                               <Button
                                 id="secondary-goal-add"
                                 color="secondary"
                                 className="align-items-center title"
-                                onClick={() => this.toggleNewPlantFormOn()}
+                                onClick={() => this.toggleNewCollectionFormOn()}
                               >
-                                <span id="main-cta">Add New Goal</span>
+                                <i className="ni ni-fat-add"></i>
+                                <span id="main-cta">Collection</span>
                               </Button>
                             </span>
                           </>

@@ -16,10 +16,6 @@ const PLANT_SERVICE = {
     return service.post("/app/plant-image-upload", plantImage);
   },
 
-  retrieveGoals() {
-    return service.get(`/app/all-goals`);
-  },
-
   updateGoal(goalId, updatedGoalData) {
     return service.post(`/app/${goalId}/update`, updatedGoalData);
   },

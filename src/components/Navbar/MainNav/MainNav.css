@@ -1,3 +1,16 @@
+/* Classes */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button {
+  width: 100% !important;
+  list-style: none !important;
+}
+
+/* IDs */
 #overflow-nav {
   overflow: auto;
   z-index: 200;
@@ -7,31 +20,4 @@
 
 #nav-content {
   width: 100%;
-}
-
-.nav-button {
-  width: 100% !important;
-  list-style: none !important;
-}
-
-.nav-button-item {
-  border-color: transparent !important;
-}
-
-.center-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 22px;
-}
-
-.center-logo > div > img {
-  height: 100%;
-}
-
-.logo-divider {
-  display: flex;
-  align-items: left;
-  justify-content: center;
-  width: 20%;
 }
