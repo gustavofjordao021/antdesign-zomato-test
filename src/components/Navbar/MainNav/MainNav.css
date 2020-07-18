@@ -17,3 +17,21 @@
 .nav-button-item {
   border-color: transparent !important;
 }
+
+.center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+}
+
+.center-logo > div > img {
+  height: 100%;
+}
+
+.logo-divider {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  width: 20%;
+}

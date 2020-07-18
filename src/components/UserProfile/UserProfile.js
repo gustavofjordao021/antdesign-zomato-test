@@ -43,7 +43,7 @@ class UserProfile extends Component {
                       userLoggedIn={currentUser}
                       passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
                     />
-                    <Col className="col-8 mt-4 mr-4">
+                    <Col className="main-container p-0">
                       <Card className="fixed-height bg-secondary shadow main-container">
                         <CardHeader className="text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4 full-width">
                           <div className="d-flex justify-content-between">

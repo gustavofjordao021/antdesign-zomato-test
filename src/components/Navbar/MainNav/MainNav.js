@@ -22,14 +22,18 @@ const MainNav = (props) => {
                 <Container className="goal-container p-0">
                   <Link to="/app" className="navbar-nav navbar-brand">
                     <div className="center-logo">
-                      <img
-                        alt="reversed logo"
-                        src={require("../../../assets/img/brand/logo-goalify.svg")}
-                        className="mr-2"
-                      />{" "}
-                      <span className="hello-user" id="center-logo">
-                        Goalify
-                      </span>
+                      <div className="logo-divider">
+                        <img
+                          alt="reversed logo"
+                          src={require("../../../assets/img/brand/logo-goalify.svg")}
+                          className="mr-2"
+                        />
+                      </div>{" "}
+                      <div>
+                        <span className="hello-user" id="center-logo">
+                          Goalify
+                        </span>
+                      </div>
                     </div>
                   </Link>{" "}
                   <Container className="goal-container p-0">
@@ -42,7 +46,16 @@ const MainNav = (props) => {
                           type="button"
                           className="nav-button-item"
                         >
-                          Home
+                          <div className="center-logo">
+                            <img
+                              alt="home-icon"
+                              src={require("../../../assets/img/icons/home-52.svg")}
+                              className="mr-2"
+                            />{" "}
+                            <span className="hello-user" id="center-logo">
+                              Home
+                            </span>
+                          </div>
                         </Button>
                       </Link>
                     </NavItem>
@@ -65,7 +78,20 @@ const MainNav = (props) => {
                           type="button"
                           className="nav-button-item"
                         >
-                          Profile
+                          <div className="center-logo">
+                            <div className="logo-divider">
+                              <img
+                                alt="profile-icon"
+                                src={require("../../../assets/img/icons/single-01.svg")}
+                                className="mr-2"
+                              />
+                            </div>{" "}
+                            <div>
+                              <span className="hello-user" id="center-logo">
+                                Profile
+                              </span>
+                            </div>
+                          </div>
                         </Button>
                       </Link>
                     </NavItem>
@@ -79,7 +105,21 @@ const MainNav = (props) => {
                           className="nav-button-item"
                           onClick={userLogOut}
                         >
-                          Logout
+                          <div className="center-logo">
+                            <div className="logo-divider">
+                              <img
+                                alt="logout-icon"
+                                src={require("../../../assets/img/icons/lock.svg")}
+                                className="mr-2"
+                              />
+                            </div>
+                            <div>
+                              {" "}
+                              <span className="hello-user" id="center-logo">
+                                Logout
+                              </span>
+                            </div>
+                          </div>
                         </Button>
                       </Link>
                     </NavItem>
