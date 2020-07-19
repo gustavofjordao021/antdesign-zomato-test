@@ -1,50 +1,23 @@
 /* Classes */
-.app-container {
+.flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100% !important;
 }
 
 .main-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
   overflow-y: scroll;
 }
 
-.fixed-height {
-  height: 100%;
+.full-width {
+  width: 100% !important;
 }
-
-.column-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.full-height {
+  height: 100% !important;
 }
 
 .title {
   color: #5e72e4;
-}
-
-.button-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.toggling-button {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center;
-  width: 100%;
-}
-
-.full-width {
-  width: 100%;
 }
 
 .card-text {
@@ -82,4 +55,8 @@
 #goal-list {
   font-size: 16px !important;
   font-weight: 400 !important;
+}
+
+#card-container {
+  flex-flow: row wrap;
 }

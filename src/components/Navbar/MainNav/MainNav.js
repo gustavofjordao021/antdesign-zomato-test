@@ -16,9 +16,9 @@ const MainNav = (props) => {
         const { currentUser } = context.state;
         return (
           <>
-            <Col className="p-0 fixed-height navbar-vertical" id="overflow-nav">
+            <Col className="p-0 full-height navbar-vertical" id="overflow-nav">
               <Card
-                className="fixed-height bg-secondary shadow column-container"
+                className="full-height bg-secondary shadow column-container"
                 id="nav-content"
               >
                 <Container className="goal-container p-0">

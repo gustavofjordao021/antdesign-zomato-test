@@ -1,4 +1,5 @@
 import React from "react";
+import "./CollectionBlock.css";
 
 import {
   Card,
@@ -6,15 +7,14 @@ import {
   CardImg,
   CardText,
   CardBody,
-  CardGroup,
   CardTitle,
   CardSubtitle,
 } from "reactstrap";
 
 const CollectionBlock = (props) => {
   return (
-    <div>
-      <Card>
+    <>
+      <Card className="collection-container">
         <CardImg
           top
           width="100%"
@@ -31,7 +31,7 @@ const CollectionBlock = (props) => {
           <Button>Button</Button>
         </CardBody>
       </Card>
-    </div>
+    </>
   );
 };
 

@@ -56,16 +56,19 @@ class ApplicationHome extends Component {
                 <Redirect to="/login" />
               ) : (
                 <>
-                  <Row className="app-container">
+                  <Row className="flex-center full-height">
                     <MainNav
                       userLoggedIn={currentUser}
                       passedDownToggleNewCollectionForm={
                         this.toggleNewCollectionFormOn
                       }
                     />
-                    <Col className="p-0 main-container">
-                      <Card className="fixed-height main-container bg-secondary">
-                        <CardDeck>
+                    <Col className="p-0 flex-container main-container full-height full-width">
+                      <Card className="full-height full-width flex-container main-container bg-secondary">
+                        <CardDeck
+                          className="flex-center full-width full-width"
+                          id="card-container"
+                        >
                           {this.state.isNewCollectionFormVisible ? (
                             <NewCollection
                               isOpen={this.state.isNewCollectionFormVisible}
