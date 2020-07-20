@@ -59,4 +59,5 @@
 
 #card-container {
   flex-flow: row wrap;
+  justify-content: left;
 }

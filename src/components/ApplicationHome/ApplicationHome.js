@@ -66,7 +66,7 @@ class ApplicationHome extends Component {
                     <Col className="p-0 flex-container main-container full-height full-width">
                       <Card className="full-height full-width flex-container main-container bg-secondary">
                         <CardDeck
-                          className="flex-center full-width full-width"
+                          className="flex-center full-width full-height"
                           id="card-container"
                         >
                           {this.state.isNewCollectionFormVisible ? (
@@ -76,7 +76,13 @@ class ApplicationHome extends Component {
                             />
                           ) : currentUser.collections.length > 0 ? (
                             currentUser.collections.map((collection, id) => (
-                              <CollectionBlock />
+                              <CollectionBlock
+                                collectionName={collection.collectionName}
+                                collectionDescription={
+                                  collection.collectionDescription
+                                }
+                                collectionPlants={collection.collectionPlants}
+                              />
                             ))
                           ) : (
                             <>
