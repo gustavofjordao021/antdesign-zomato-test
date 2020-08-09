@@ -64,48 +64,46 @@ class ApplicationHome extends Component {
                       }
                     />
                     <Col className="p-0 flex-container main-container full-height full-width">
-                      <Card className="full-height full-width flex-container main-container bg-secondary">
-                        <CardDeck
-                          className="flex-center full-width full-height"
-                          id="card-container"
-                        >
-                          {this.state.isNewCollectionFormVisible ? (
+                      <Card
+                        className="full-height full-width flex-container main-container bg-secondary"
+                        id="card-container"
+                      >
+                        {this.state.isNewCollectionFormVisible ? (
+                          <CardDeck className="flex-center full-width full-height">
                             <NewCollection
                               isOpen={this.state.isNewCollectionFormVisible}
                               isDone={this.toggleNewCollectionFormOff}
                             />
-                          ) : currentUser.collections.length > 0 ? (
-                            currentUser.collections.map((collection, id) => (
-                              <CollectionBlock
-                                collectionName={collection.collectionName}
-                                collectionDescription={
-                                  collection.collectionDescription
-                                }
-                                collectionPlants={collection.collectionPlants}
-                              />
-                            ))
-                          ) : (
-                            <>
-                              <span className="text-center m-4">
-                                <p className="text-muted card-text">
-                                  Select a collection on the left, or click
-                                  below to create a new collection
-                                </p>
-                                <Button
-                                  id="secondary-goal-add"
-                                  color="secondary"
-                                  className="align-items-center title"
-                                  onClick={() =>
-                                    this.toggleNewCollectionFormOn()
-                                  }
-                                >
-                                  <i className="ni ni-fat-add"></i>
-                                  <span id="main-cta">Collection</span>
-                                </Button>
-                              </span>
-                            </>
-                          )}
-                        </CardDeck>
+                          </CardDeck>
+                        ) : currentUser.collections.length > 0 ? (
+                          currentUser.collections.map((collection, id) => (
+                            <CollectionBlock
+                              collectionName={collection.collectionName}
+                              collectionDescription={
+                                collection.collectionDescription
+                              }
+                              collectionPlants={collection.collectionPlants}
+                            />
+                          ))
+                        ) : (
+                          <CardDeck className="flex-center full-width full-height">
+                            <span className="text-center m-4">
+                              <p className="text-muted card-text">
+                                Select a collection on the left, or click below
+                                to create a new collection
+                              </p>
+                              <Button
+                                id="secondary-goal-add"
+                                color="secondary"
+                                className="align-items-center title"
+                                onClick={() => this.toggleNewCollectionFormOn()}
+                              >
+                                <i className="ni ni-fat-add"></i>
+                                <span id="main-cta">Collection</span>
+                              </Button>
+                            </span>
+                          </CardDeck>
+                        )}
                       </Card>
                     </Col>
                   </Row>

@@ -14,16 +14,17 @@ const CollectionBlock = (props) => {
   const { collectionName, collectionDescription, collectionPlants } = props;
   return (
     <>
-      <Card className="collection-container">
+      <Card className="collection-container shadow">
         <CardImg
           top
           width="100%"
+          alt="Card image cap"
           src={
             !collectionPlants
-              ? "../../assets/img/brand/generic_plan.png"
-              : collectionPlants
+              ? require("../../assets/img/brand/generic_plant.png")
+              : "test"
           }
-          alt="Card image cap"
+          //   src={require("../../assets/img/brand/generic_plant.png")}
         />
         <CardBody>
           <CardTitle>{collectionName}</CardTitle>

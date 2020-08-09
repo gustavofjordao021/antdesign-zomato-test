@@ -6,76 +6,163 @@ import MainNav from "../Navbar/MainNav/MainNav";
 
 import "./UserProfile.css";
 
-import { Row, Col, Card, CardHeader, CardBody } from "reactstrap";
+import {
+  Row,
+  Col,
+  Card,
+  Form,
+  Input,
+  Button,
+  CardBody,
+  FormGroup,
+  CardHeader,
+} from "reactstrap";
 
-class UserProfile extends Component {
-  state = {
-    isGoalFormVisible: false,
-  };
-
-  toggleGoalFormOn = () => {
-    this.setState((prevState) => ({
-      ...prevState,
-      isGoalFormVisible: true,
-    }));
-  };
-
-  toggleGoalFormOff = () => {
-    this.setState((prevState) => ({
-      ...prevState,
-      isGoalFormVisible: false,
-    }));
-  };
-
-  render() {
-    return (
-      <AuthContext.Consumer>
-        {(context) => {
-          const { currentUser, isLoggedIn } = context.state;
-          return (
-            <>
-              {!isLoggedIn ? (
-                <Redirect to="/login" />
-              ) : (
-                <>
-                  <Row className="app-container">
-                    <MainNav
-                      userLoggedIn={currentUser}
-                      passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
-                    />
-                    <Col className="main-container p-0">
-                      <Card className="fixed-height bg-secondary shadow main-container">
-                        <CardHeader className="text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4 full-width">
-                          <div className="d-flex justify-content-between">
-                            <div className="card-profile-image">
-                              <a
-                                href="#pablo"
-                                onClick={(e) => e.preventDefault()}
-                              >
-                                <img
-                                  alt="..."
-                                  className="rounded-circle"
-                                  src={currentUser.avatar}
-                                />
-                              </a>
+const UserProfile = () => {
+  return (
+    <AuthContext.Consumer>
+      {(context) => {
+        const { currentUser, isLoggedIn } = context.state;
+        const { username, email } = currentUser;
+        return (
+          <>
+            {!isLoggedIn ? (
+              <Redirect to="/login" />
+            ) : (
+              <>
+                <Row className="flex-center full-height">
+                  <MainNav
+                    userLoggedIn={currentUser}
+                    passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
+                  />
+                  <Col className="p-0 flex-container main-container full-height full-width">
+                    <Card className="full-width full-height bg-secondary shadow main-container">
+                      <CardHeader className="bg-white border-0 full-width">
+                        <Row className="align-items-center">
+                          <Col xs="8">
+                            <h3 className="mb-0">My account</h3>
+                          </Col>
+                          <Col className="text-right" xs="4">
+                            <Button
+                              color="primary"
+                              href="#pablo"
+                              onClick={(e) => e.preventDefault()}
+                              size="sm"
+                            >
+                              Settings
+                            </Button>
+                          </Col>
+                        </Row>
+                      </CardHeader>
+                      <Card>
+                        <CardBody>
+                          <Form>
+                            <h6 className="heading-small text-muted mb-4">
+                              User information
+                            </h6>
+                            <div className="pl-lg-4">
+                              <Row>
+                                <Col lg="6">
+                                  <FormGroup>
+                                    <label
+                                      className="form-control-label"
+                                      htmlFor="input-username"
+                                    >
+                                      Username
+                                    </label>
+                                    <Input
+                                      className="form-control-alternative"
+                                      id="input-username"
+                                      placeholder={username}
+                                      type="text"
+                                    />
+                                  </FormGroup>
+                                </Col>
+                                <Col lg="6">
+                                  <FormGroup>
+                                    <label
+                                      className="form-control-label"
+                                      htmlFor="input-email"
+                                    >
+                                      Email address
+                                    </label>
+                                    <Input
+                                      className="form-control-alternative"
+                                      id="input-email"
+                                      placeholder={email}
+                                      type="email"
+                                    />
+                                  </FormGroup>
+                                </Col>
+                              </Row>
+                              <Row>
+                                <Col lg="6">
+                                  <FormGroup>
+                                    <label
+                                      className="form-control-label"
+                                      htmlFor="input-first-name"
+                                    >
+                                      First name
+                                    </label>
+                                    <Input
+                                      className="form-control-alternative"
+                                      defaultValue="Lucky"
+                                      id="input-first-name"
+                                      placeholder="First name"
+                                      type="text"
+                                    />
+                                  </FormGroup>
+                                </Col>
+                                <Col lg="6">
+                                  <FormGroup>
+                                    <label
+                                      className="form-control-label"
+                                      htmlFor="input-last-name"
+                                    >
+                                      Last name
+                                    </label>
+                                    <Input
+                                      className="form-control-alternative"
+                                      defaultValue="Jesse"
+                                      id="input-last-name"
+                                      placeholder="Last name"
+                                      type="text"
+                                    />
+                                  </FormGroup>
+                                </Col>
+                              </Row>
                             </div>
-                          </div>
-                          <div className="text-center">
-                            <h3>{currentUser.username}</h3>
-                          </div>
-                        </CardHeader>
-                        <CardBody className="pt-0 pt-md-4"></CardBody>
+                            <hr className="my-4" />
+                            {/* Description */}
+                            <h6 className="heading-small text-muted mb-4">
+                              About me
+                            </h6>
+                            <div className="pl-lg-4">
+                              <FormGroup>
+                                <label>About Me</label>
+                                <Input
+                                  className="form-control-alternative"
+                                  placeholder="A few words about you ..."
+                                  rows="4"
+                                  defaultValue="A beautiful Dashboard for Bootstrap 4. It is Free and
+                          Open Source."
+                                  type="textarea"
+                                />
+                              </FormGroup>
+                            </div>
+                          </Form>
+                        </CardBody>
                       </Card>
-                    </Col>
-                  </Row>
-                </>
-              )}
-            </>
-          );
-        }}
-      </AuthContext.Consumer>
-    );
-  }
-}
+                    </Card>
+                  </Col>
+                </Row>
+              </>
+            )}
+          </>
+        );
+      }}
+    </AuthContext.Consumer>
+  );
+};
 
 export default UserProfile;
