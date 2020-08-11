@@ -7,17 +7,7 @@ import ProfileBlock from "../UserProfile/ProfileBlock/ProfileBlock";
 
 import "./UserProfile.css";
 
-import {
-  Row,
-  Col,
-  Card,
-  Form,
-  Input,
-  Button,
-  CardBody,
-  FormGroup,
-  CardHeader,
-} from "reactstrap";
+import { Row, Col, Card, Button, CardHeader } from "reactstrap";
 
 const UserProfile = () => {
   return (
@@ -39,11 +29,10 @@ const UserProfile = () => {
                     <Card className="full-width full-height bg-secondary shadow main-container">
                       <CardHeader className="bg-white full-width">
                         <Row className="align-items-center flex-center">
-                          <Col xs="8">
-                            <h3 className="mb-0">My account</h3>
-                          </Col>
-                          <Col className="text-right" xs="4">
+                          <Row className="flex-center flex-space-between full-width">
+                            <h3 className="mb-0 ml-6">My account</h3>
                             <Button
+                              className="mr-6"
                               color="primary"
                               href="#pablo"
                               onClick={(e) => e.preventDefault()}
@@ -51,11 +40,13 @@ const UserProfile = () => {
                             >
                               Settings
                             </Button>
-                          </Col>
-                          <ProfileBlock userLoggedIn={currentUser} />
-                          <ProfileBlock userLoggedIn={currentUser} />
+                          </Row>
                         </Row>
                       </CardHeader>
+                      <Row className="align-items-center flex-center full-width">
+                        <ProfileBlock userLoggedIn={currentUser} />
+                        <ProfileBlock userLoggedIn={currentUser} />
+                      </Row>
                     </Card>
                   </Col>
                 </Row>

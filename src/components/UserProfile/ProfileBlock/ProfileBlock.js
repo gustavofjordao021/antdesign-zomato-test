@@ -13,9 +13,9 @@ const ProfileBlock = (props) => {
       <CardBody>
         <Form>
           <h6 className="heading-small text-muted mb-4">User information</h6>
-          <div className="pl-lg-4">
+          <div>
             <Row>
-              <Col lg="6">
+              <Col>
                 <FormGroup>
                   <label
                     className="form-control-label"
@@ -32,7 +32,7 @@ const ProfileBlock = (props) => {
                   />
                 </FormGroup>
               </Col>
-              <Col lg="6">
+              <Col>
                 <FormGroup>
                   <label className="form-control-label" htmlFor="input-email">
                     Email address
@@ -48,7 +48,7 @@ const ProfileBlock = (props) => {
               </Col>
             </Row>
             <Row>
-              <Col lg="6">
+              <Col>
                 <FormGroup>
                   <label
                     className="form-control-label"
@@ -65,7 +65,7 @@ const ProfileBlock = (props) => {
                   />
                 </FormGroup>
               </Col>
-              <Col lg="6">
+              <Col>
                 <FormGroup>
                   <label
                     className="form-control-label"
@@ -87,7 +87,7 @@ const ProfileBlock = (props) => {
           <hr className="my-4" />
           {/* Description */}
           <h6 className="heading-small text-muted mb-4">About me</h6>
-          <div className="pl-lg-4">
+          <div>
             <FormGroup>
               <label>About Me</label>
               <Input
