@@ -18,8 +18,8 @@
     "reactstrap": "^8.4.1"
   },
   "scripts": {
-    "start": "react-scripts start webpack --config dotenv.js",
-    "build": "react-scripts build webpack --config dotenv.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

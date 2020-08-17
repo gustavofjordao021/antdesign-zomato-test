@@ -1,22 +1,14 @@
-import axios from "axios";
 import React from "react";
 import { AuthContext } from "../../../context/index";
-
-const weatherEndpoint = process.env.WEATHER_API_KEY;
+import WEATHER_SERVICE from "../../../services/WeatherService";
 
 const WeatherWidget = () => {
   return (
     <AuthContext.Consumer>
       {(context) => {
-        const { lat, lon } = context.state.location;
-        console.log(
-          axios
-            .get(
-              `https://api.opeweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${weatherEndpoint}`
-            )
-            .then((weather) => console.log(weather))
-            .catch((errorMessage) => console.log(errorMessage))
-        );
+        const { location } = context.state;
+        let test = (location) => WEATHER_SERVICE.returnWeather(location);
+        test(location);
         return (
           <>
             <div className="flex-center nav-logo">
