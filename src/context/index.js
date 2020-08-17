@@ -28,6 +28,7 @@ class AuthProvider extends React.Component {
         : this.currentUser === undefined
         ? false
         : true,
+    location: { lat: "", lon: "" },
   };
 
   syncUser = (user) => {
@@ -38,11 +39,25 @@ class AuthProvider extends React.Component {
   isUserLoggedIn = async () => {
     const userFound = await AUTH_SERVICE.getUser();
     if (userFound.data.user) {
-      this.setState((prevState) => ({
-        ...prevState,
-        currentUser: userFound?.data?.user,
-        isLoggedIn: true,
-      }));
+      if (window.navigator.geolocation) {
+        window.navigator.geolocation.getCurrentPosition((position) => {
+          this.setState((prevState) => ({
+            ...prevState,
+            currentUser: userFound?.data?.user,
+            isLoggedIn: true,
+            location: {
+              lat: position.coords.latitude,
+              lon: position.coords.longitude,
+            },
+          }));
+        });
+      } else {
+        this.setState((prevState) => ({
+          ...prevState,
+          currentUser: userFound?.data?.user,
+          isLoggedIn: true,
+        }));
+      }
     } else {
       this.setState((prevState) => ({
         ...prevState,

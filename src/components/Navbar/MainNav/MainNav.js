@@ -1,4 +1,5 @@
 import React from "react";
+import Weather from "../Weather/Weather";
 import { Link } from "react-router-dom";
 import NavOption from "../NavOption/NavOption";
 import { AuthContext } from "../../../context/index";
@@ -58,6 +59,7 @@ const MainNav = (props) => {
                     <span className="hello-user" id="center-logo">
                       Settings
                     </span>
+                    <NavItem className="nav-button"></NavItem>
                     <NavItem className="nav-button">
                       <NavOption
                         icon="single-01.svg"
@@ -73,10 +75,14 @@ const MainNav = (props) => {
                       />
                     </NavItem>
                   </Container>
+                  <Weather />
                 </Container>
                 <div className="button-container mb-4">
                   <div className="full-width ml-3 mr-3">
-                    <hr className="ml-3 mr-3 mb-3 mt-2" />
+                    <hr
+                      id="button-break"
+                      className="pl-3 ml-3 mr-3 mb-3 mt-2"
+                    />
                   </div>
                   <Button
                     color="primary"

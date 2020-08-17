@@ -1,0 +1,24 @@
+/* Classes */
+.nav-button-item {
+  border-color: transparent !important;
+}
+
+.nav-logo {
+  height: 22px;
+}
+
+.center-logo > div > img {
+  height: 100%;
+}
+
+.logo-divider {
+  width: 40%;
+}
+
+.text-divider {
+  display: flex;
+  justify-content: left;
+  width: 60%;
+}
+
+/* IDs */

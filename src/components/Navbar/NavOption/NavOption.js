@@ -14,7 +14,7 @@ const NavOption = (props) => {
         block
         type="button"
         className="nav-button-item"
-        onClick={!action ? "" : action}
+        onClick={!action ? null : action}
       >
         <div className="flex-center nav-logo">
           <div className="logo-divider pl-5 mx-2">
