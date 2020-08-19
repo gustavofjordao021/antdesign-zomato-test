@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Button } from "reactstrap";
 import { AuthContext } from "../../../context/index";
 import WEATHER_SERVICE from "../../../services/WeatherService";
 
 const WeatherWidget = () => {
+  const [weather, setWeather] = useState({});
   return (
     <AuthContext.Consumer>
       {(context) => {
         const { location } = context.state;
-        let test = (location) => WEATHER_SERVICE.returnWeather(location);
-        test(location);
         return (
           <>
             <div className="flex-center nav-logo">
-              <div className="logo-divider pl-5 mx-2"></div>{" "}
               <div className="text-divider">
-                <span className="hello-user">Test</span>
+                <Button
+                  onClick={() => {
+                    WEATHER_SERVICE.returnWeather(
+                      location
+                    ).then((infoWeather) => setWeather(infoWeather.data));
+                    console.log(weather);
+                  }}
+                ></Button>
               </div>
             </div>
           </>
