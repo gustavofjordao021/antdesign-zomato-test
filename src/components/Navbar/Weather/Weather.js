@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "reactstrap";
+import React, { useState } from "react";
+
 import { AuthContext } from "../../../context/index";
 import WEATHER_SERVICE from "../../../services/WeatherService";
 
 const WeatherWidget = () => {
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState("");
+  const [city, setCity] = useState("");
   return (
     <AuthContext.Consumer>
       {(context) => {
         const { location } = context.state;
+        WEATHER_SERVICE.returnLocation().then((location) => {
+          setCity(location.data.location);
+        });
+        WEATHER_SERVICE.returnWeather(location).then((weather) => {
+          console.log(weather.data.weather);
+          setWeather(weather.data.weather);
+        });
         return (
           <>
             <div className="flex-center nav-logo">
-              <div className="text-divider">
-                <Button
-                  onClick={() => {
-                    WEATHER_SERVICE.returnWeather(
-                      location
-                    ).then((infoWeather) => setWeather(infoWeather.data));
-                    console.log(weather);
-                  }}
-                ></Button>
-              </div>
+              It's currently {Math.round(weather) + "°F"} in {city}.
             </div>
           </>
         );

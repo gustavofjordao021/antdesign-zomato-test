@@ -11,6 +11,9 @@ const WEATHER_SERVICE = {
   returnWeather(locationInfo) {
     return service.post(`/app/return-weather`, { locationInfo });
   },
+  returnLocation() {
+    return service.post(`/app/return-location`);
+  },
 };
 
 export default WEATHER_SERVICE;
