@@ -18,7 +18,7 @@ const App = () => {
 
   React.useEffect(() => {
     context.isUserLoggedIn();
-  }, []);
+  });
 
   return (
     <AuthContext.Consumer>

@@ -101,7 +101,6 @@ class newPlantForm extends Component {
 
   render() {
     const {
-      plantDate,
       plantName,
       plantPicture,
       plantFileName,
