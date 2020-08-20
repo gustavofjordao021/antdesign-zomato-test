@@ -67,11 +67,15 @@ class AuthProvider extends React.Component {
   };
 
   handleGoogle = async () => {
-    await window.location.replace("http://localhost:3001/auth/google");
+    await window.location.replace(
+      "https://plant-app-test.herokuapp.com/auth/google"
+    );
   };
 
   handleFacebook = async () => {
-    await window.location.replace("http://localhost:3001/auth/facebook");
+    await window.location.replace(
+      "https://plant-app-test.herokuapp.com/auth/facebook"
+    );
   };
 
   handleSignupInput = (e) => {
