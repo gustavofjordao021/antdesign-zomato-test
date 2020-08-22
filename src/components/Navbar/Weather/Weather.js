@@ -11,10 +11,11 @@ const WeatherWidget = () => {
       {(context) => {
         const { location } = context.state;
         WEATHER_SERVICE.returnLocation().then((location) => {
+          console.log("LOCATION DATA ====>", weather.data.location);
           setCity(location.data.location);
         });
         WEATHER_SERVICE.returnWeather(location).then((weather) => {
-          console.log(weather.data.weather);
+          console.log("WEATHER DATA ====>", weather.data.weather);
           setWeather(weather.data.weather);
         });
         return (
