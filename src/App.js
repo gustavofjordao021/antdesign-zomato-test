@@ -27,15 +27,16 @@ const App = () => {
         return (
           <div className="App">
             <Switch>
-              <Route path="/" component={Home} />
-              <Route path="/login" component={Login} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/app" component={ApplicationHome} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/app" component={ApplicationHome} />
               <Route
+                exact
                 path="/app/collections/:collectionId"
                 component={GoalDetails}
               />
-              <Route path="/app/user-profile" component={UserProfile} />
+              <Route exact path="/app/user-profile" component={UserProfile} />
             </Switch>
             {isLoggedIn ? <span /> : <Footer />}
           </div>
