@@ -143,7 +143,7 @@ const Login = () => {
                         ) : successMessage ? (
                           <Alert color="success">{successMessage}</Alert>
                         ) : (
-                          <span></span>
+                          <span />
                         )}
                         <div className="text-center">
                           <Button

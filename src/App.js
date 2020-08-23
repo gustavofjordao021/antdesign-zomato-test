@@ -18,7 +18,7 @@ const App = () => {
 
   React.useEffect(() => {
     context.isUserLoggedIn();
-  });
+  }, []);
 
   return (
     <AuthContext.Consumer>
@@ -38,7 +38,7 @@ const App = () => {
               />
               <Route exact path="/app/user-profile" component={UserProfile} />
             </Switch>
-            {isLoggedIn ? <span /> : <Footer />}
+            {isLoggedIn ? "" : <Footer />}
           </div>
         );
       }}
