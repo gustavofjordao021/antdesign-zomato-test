@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home/Home";
@@ -14,10 +14,13 @@ import "../src/assets/css/argon-dashboard-react.css";
 
 const App = () => {
   let context = React.useContext(AuthContext);
-
-  useEffect(() => {
+  let fetchContext = useCallback(() => {
     context.isUserLoggedIn();
   }, []);
+
+  useEffect(() => {
+    fetchContext();
+  }, [fetchContext]);
 
   return (
     <AuthContext.Consumer>
