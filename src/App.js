@@ -6,7 +6,6 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Footer from "./components/Footer/Footer";
 import GoalDetails from "./components/GoalDetails/GoalDetails";
-import UserProfile from "./components/UserProfile/UserProfile";
 import { AuthContext } from "./context";
 import ApplicationHome from "./components/ApplicationHome/ApplicationHome";
 

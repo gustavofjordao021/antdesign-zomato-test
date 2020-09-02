@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
-import MainNav from "../Navbar/MainNav/MainNav";
 import ProfileBlock from "../UserProfile/ProfileBlock/ProfileBlock";
 
 import "./UserProfile.css";
