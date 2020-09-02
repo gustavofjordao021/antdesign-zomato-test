@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home/Home";
@@ -14,14 +14,10 @@ import "../src/assets/css/argon-dashboard-react.css";
 
 const App = () => {
   let context = React.useContext(AuthContext);
-  let fetchContext = useCallback(() => {
-    context.isUserLoggedIn();
-  }, []);
 
   useEffect(() => {
-    fetchContext();
-  }, [fetchContext]);
-
+    context.isUserLoggedIn();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <AuthContext.Consumer>
       {(context) => {

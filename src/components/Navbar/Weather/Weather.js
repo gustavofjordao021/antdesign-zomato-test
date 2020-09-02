@@ -22,7 +22,7 @@ const WeatherWidget = () => {
         });
       }),
     []
-  );
+  ); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
       <div id="weather-widget" className="flex-center nav-logo">
