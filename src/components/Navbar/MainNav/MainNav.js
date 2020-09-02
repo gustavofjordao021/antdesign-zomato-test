@@ -9,7 +9,11 @@ import "./MainNav.css";
 import { Col, Card, Button, NavItem, Container } from "reactstrap";
 
 const MainNav = (props) => {
-  const { passedDownToggleNewCollectionForm } = props;
+  const {
+    passedDownToggleNewCollectionForm,
+    passedDownToggleUserProfileOn,
+    passedDownToggleUserProfileOff,
+  } = props;
   return (
     <AuthContext.Consumer>
       {(context) => {
@@ -23,7 +27,11 @@ const MainNav = (props) => {
                 id="nav-content"
               >
                 <Container className="goal-container p-0">
-                  <Link to="/app" className="navbar-nav navbar-brand">
+                  <Link
+                    to="/app"
+                    className="navbar-nav navbar-brand"
+                    onClick={() => passedDownToggleUserProfileOff()}
+                  >
                     <div className="flex-center center-logo">
                       <div className="logo-divider">
                         <img
@@ -39,7 +47,12 @@ const MainNav = (props) => {
                   </Link>{" "}
                   <Container className="goal-container p-0">
                     <NavItem className="nav-button">
-                      <NavOption icon="home-52.svg" page="Home" linkTo="/app" />
+                      <NavOption
+                        icon="home-52.svg"
+                        page="Home"
+                        linkTo="/app"
+                        action={() => passedDownToggleUserProfileOff()}
+                      />
                     </NavItem>
                   </Container>
                   <Container className="goal-container p-0">
@@ -65,6 +78,7 @@ const MainNav = (props) => {
                         icon="single-01.svg"
                         page="Profile"
                         linkTo="/app/user-profile"
+                        action={() => passedDownToggleUserProfileOn()}
                       />
                     </NavItem>
                     <NavItem className="nav-button">

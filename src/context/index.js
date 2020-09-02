@@ -52,13 +52,13 @@ class AuthProvider extends React.Component {
   };
 
   handleGoogle = async () => {
-    await window.location.replace(
+    await window.location.assign(
       "https://plant-app-test.herokuapp.com/auth/google"
     );
   };
 
   handleFacebook = async () => {
-    await window.location.replace(
+    await window.location.assign(
       "https://plant-app-test.herokuapp.com/auth/facebook"
     );
   };

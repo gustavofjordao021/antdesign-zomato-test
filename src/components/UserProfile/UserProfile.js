@@ -21,10 +21,6 @@ const UserProfile = () => {
             ) : (
               <>
                 <Row className="flex-center full-height">
-                  <MainNav
-                    userLoggedIn={currentUser}
-                    passedDownToggleGoalForm={() => this.toggleGoalFormOn()}
-                  />
                   <Col className="p-0 flex-container main-container full-height full-width bg-secondary">
                     <Card className="full-width full-height bg-secondary shadow main-container">
                       <CardHeader className="bg-white full-width">

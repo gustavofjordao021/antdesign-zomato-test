@@ -1,32 +1,33 @@
 import React, { useState, useEffect } from "react";
 
+import "./Weather.css";
+
 import WEATHER_SERVICE from "../../../services/WeatherService";
 
 const WeatherWidget = () => {
-  const [city, setCity] = useState("");
-  const [weather, setWeather] = useState("");
-  const [userLocation, setUserLocation] = useState({ lat: "", lon: "" });
+  const [weather, setWeather] = useState({ weatherInfo: "", locationInfo: "" });
   useEffect(
     () =>
-      window.navigator.geolocation.getCurrentPosition(async (location) => {
-        await setUserLocation({
-          lat: location.coords.latitude,
-          lon: location.coords.longitude,
+      window.navigator.geolocation.getCurrentPosition((location) => {
+        WEATHER_SERVICE.returnLocation(location).then((userLocation) => {
+          WEATHER_SERVICE.returnWeather({
+            lat: location.coords.latitude,
+            lon: location.coords.longitude,
+          }).then((weather) => {
+            setWeather({
+              weatherInfo: weather.data,
+              locationInfo: userLocation.data.location,
+            });
+          });
         });
-        await WEATHER_SERVICE.returnLocation(userLocation).then((location) => {
-          setCity(location.data.location);
-        });
-        await WEATHER_SERVICE.returnWeather(userLocation).then((weather) => {
-          setWeather(weather.data.weather);
-        });
-        console.log("User location ====> ", userLocation);
       }),
-    [city, weather, userLocation]
+    []
   );
   return (
     <>
-      <div className="flex-center nav-logo">
-        It's currently {Math.round(weather) + "°F"} in {city}.
+      <div id="weather-widget" className="flex-center nav-logo">
+        It's currently {Math.round(weather.weatherInfo) + "°F"} in{" "}
+        {weather.locationInfo}.
       </div>
     </>
   );

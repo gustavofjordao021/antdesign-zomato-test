@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home/Home";
@@ -16,7 +16,7 @@ import "../src/assets/css/argon-dashboard-react.css";
 const App = () => {
   let context = React.useContext(AuthContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     context.isUserLoggedIn();
   }, []);
 
@@ -30,13 +30,21 @@ const App = () => {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/app" component={ApplicationHome} />
+              <Route
+                exact
+                path="/app"
+                render={() => <ApplicationHome visibleUserProfile={false} />}
+              />
               <Route
                 exact
                 path="/app/collections/:collectionId"
                 component={GoalDetails}
               />
-              <Route exact path="/app/user-profile" component={UserProfile} />
+              <Route
+                exact
+                path="/app/user-profile"
+                render={() => <ApplicationHome visibleUserProfile={true} />}
+              />
             </Switch>
             {isLoggedIn ? "" : <Footer />}
           </div>
