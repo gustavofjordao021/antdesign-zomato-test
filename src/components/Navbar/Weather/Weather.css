@@ -21,7 +21,16 @@
   width: 60%;
 }
 
+.weather-icon {
+  width: 40px;
+}
+
 /* IDs */
 #weather-widget {
   height: 30%;
+  padding: 0px 31px;
+}
+
+#weather-widget > p {
+  line-height: 0.5 !important;
 }

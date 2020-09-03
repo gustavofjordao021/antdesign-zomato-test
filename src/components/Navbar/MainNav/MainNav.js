@@ -1,12 +1,13 @@
-import React from "react";
-import Weather from "../Weather/Weather";
+import React, { Suspense } from "react";
 import { Link } from "react-router-dom";
 import NavOption from "../NavOption/NavOption";
 import { AuthContext } from "../../../context/index";
 
 import "./MainNav.css";
 
-import { Col, Card, Button, NavItem, Container } from "reactstrap";
+import { Col, Card, Button, Spinner, NavItem, Container } from "reactstrap";
+
+const Weather = React.lazy(() => import("../Weather/Weather"));
 
 const MainNav = (props) => {
   const {
@@ -89,7 +90,9 @@ const MainNav = (props) => {
                       />
                     </NavItem>
                   </Container>
-                  <Weather />
+                  <Suspense fallback={<Spinner />}>
+                    <Weather />
+                  </Suspense>
                 </Container>
                 <div className="button-container mb-4">
                   <div className="full-width ml-3 mr-3">

@@ -5,7 +5,11 @@ import "./Weather.css";
 import WEATHER_SERVICE from "../../../services/WeatherService";
 
 const WeatherWidget = () => {
-  const [weather, setWeather] = useState({ weatherInfo: "", locationInfo: "" });
+  const [weather, setWeather] = useState({
+    weatherInfo: "",
+    locationInfo: "",
+    weatherIcon: "",
+  });
   useEffect(
     () =>
       window.navigator.geolocation.getCurrentPosition((location) => {
@@ -15,8 +19,9 @@ const WeatherWidget = () => {
             lon: location.coords.longitude,
           }).then((weather) => {
             setWeather({
-              weatherInfo: weather.data,
+              weatherInfo: weather.data.current.temp,
               locationInfo: userLocation.data.location,
+              weatherIcon: weather.data.current.weather[0].icon,
             });
           });
         });
@@ -26,8 +31,15 @@ const WeatherWidget = () => {
   return (
     <>
       <div id="weather-widget" className="flex-center nav-logo">
-        It's currently {Math.round(weather.weatherInfo) + "°F"} in{" "}
-        {weather.locationInfo}.
+        <p>
+          It's currently {Math.round(weather.weatherInfo) + "°F"}{" "}
+          <img
+            src={`http://openweathermap.org/img/wn/${weather.weatherIcon}@2x.png`}
+            className="weather-icon"
+            alt="weather-icon-logo"
+          />{" "}
+          in {weather.locationInfo}.
+        </p>
       </div>
     </>
   );
