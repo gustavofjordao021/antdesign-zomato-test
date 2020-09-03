@@ -27,7 +27,7 @@ const MainNav = (props) => {
                 className="full-height bg-secondary shadow column-container"
                 id="nav-content"
               >
-                <Container className="goal-container p-0">
+                <Container id="nav-content" className="goal-container p-0">
                   <Link
                     to="/app"
                     className="navbar-nav navbar-brand"

@@ -12,7 +12,6 @@
 
 /* IDs */
 #overflow-nav {
-  overflow: auto;
   z-index: 200;
   display: flex;
   flex: 0 0 250px;
@@ -20,6 +19,7 @@
 
 #nav-content {
   width: 100%;
+  overflow-x: hidden !important;
 }
 
 #button-break {
