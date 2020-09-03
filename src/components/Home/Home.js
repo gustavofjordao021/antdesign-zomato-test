@@ -24,7 +24,7 @@ const Home = () => {
                   </header>
                 </div>
                 <Container className="home-container">
-                  <Row>
+                  <Row id="main-row">
                     <Col className="mt-4 ml-3 mr-4 mb-4">
                       <Card className="shadow">
                         <h1 id="hero-title" className="ml-4 mt-4 mb-0">
