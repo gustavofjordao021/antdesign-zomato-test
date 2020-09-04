@@ -56,7 +56,7 @@ const Login = () => {
                         <p>Login</p>
                         <Button
                           color="secondary"
-                          className="login-button-text mb-2"
+                          className="login-button-text mb-2 secondary-cta"
                           onClick={handleGoogle}
                         >
                           <img
@@ -68,7 +68,7 @@ const Login = () => {
                         </Button>
                         <Button
                           color="secondary"
-                          className="login-button-text m-0"
+                          className="login-button-text m-0 secondary-cta"
                           onClick={handleFacebook}
                         >
                           <img
@@ -147,7 +147,7 @@ const Login = () => {
                         )}
                         <div className="text-center">
                           <Button
-                            className="my-2 login-button-cta"
+                            className="my-1 login-button-cta main-cta"
                             color="primary"
                             type="submit"
                           >

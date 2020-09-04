@@ -19,7 +19,7 @@ const HomeNavBar = () => {
   return (
     <>
       <Navbar
-        className="navbar-top mt-2 navbar-horizontal navbar-dark"
+        className="navbar-top mt-2 navbar-horizontal navbar-dark p-2"
         expand="md"
       >
         <Container className="px-4">
@@ -55,12 +55,17 @@ const HomeNavBar = () => {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink className="nav-link-icon" to="/signup" tag={Link}>
-                  <Button color="primary">Signup</Button>
+                  <Button className="main-cta" color="primary">
+                    Signup
+                  </Button>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink className="nav-link-icon" to="/login" tag={Link}>
-                  <Button color="secondary" className="login-button-text">
+                  <Button
+                    color="secondary"
+                    className="login-button-text secondary-cta"
+                  >
                     Login
                   </Button>
                 </NavLink>

@@ -14,24 +14,28 @@ const CollectionBlock = (props) => {
   const { collectionName, collectionDescription, collectionPlants } = props;
   return (
     <>
-      {collectionPlants.length <= 0 ? (
+      {console.log(collectionPlants)}
+      {collectionPlants ? (
         <Card className="collection-container shadow">
           <CardImg
             top
             width="100%"
             id="collection-block-image"
             alt="Card image cap"
-            src={require("../../assets/img/brand/generic_plant.png")}
+            src={require("../../assets/img/brand/fancy-plants.png")}
           />
           <CardBody className="py-0">
-            <CardText>{collectionDescription}</CardText>
-            <CardTitle>{collectionName}</CardTitle>
+            <CardText>{collectionName}</CardText>
+            <CardTitle>{collectionDescription}</CardTitle>
             <div className="flex-center">
-              <Button className="my-1 mx-2 flex-center" color="primary">
+              <Button
+                className="my-1 mx-2 flex-center main-cta"
+                color="primary"
+              >
                 <i className="ni ni-fat-add"></i>
                 <span>Plant</span>
               </Button>
-              <Button className="my-1 mx-2" color="danger">
+              <Button className="my-1 mx-2 secondary-cta">
                 <span>Delete</span>
               </Button>
             </div>
@@ -43,16 +47,16 @@ const CollectionBlock = (props) => {
             top
             width="100%"
             alt="Card image cap"
-            src={collectionPlants.plantPicture}
+            src={collectionPlants}
           />
           <CardBody>
             <CardText>{collectionDescription}</CardText>
             <CardTitle>{collectionName}</CardTitle>
             <div className="flex-center">
-              <Button className="my-1 mx-2" color="primary">
+              <Button className="my-1 mx-2 main-cta" color="primary">
                 Primary
               </Button>
-              <Button className="my-1 mx-2" color="secondary">
+              <Button className="my-1 mx-2 secondary-cta" color="secondary">
                 Primary
               </Button>
             </div>

@@ -115,13 +115,15 @@ class ApplicationHome extends Component {
                                 <Button
                                   id="secondary-goal-add"
                                   color="secondary"
-                                  className="align-items-center title"
+                                  className="align-items-center title secondary-cta"
                                   onClick={() =>
                                     this.toggleNewCollectionFormOn()
                                   }
                                 >
                                   <i className="ni ni-fat-add"></i>
-                                  <span id="main-cta">Collection</span>
+                                  <span className="secondary-cta">
+                                    Collection
+                                  </span>
                                 </Button>
                               </span>
                             </CardDeck>

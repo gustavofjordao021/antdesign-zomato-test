@@ -404,7 +404,7 @@ class GoalDetails extends Component {
                                                     this.toggleActionFormOn()
                                                   }
                                                 >
-                                                  <span id="main-cta">
+                                                  <span className="main-cta">
                                                     Create new action
                                                   </span>
                                                 </Button>
@@ -432,7 +432,7 @@ class GoalDetails extends Component {
                                                   this.toggleActionFormOn()
                                                 }
                                               >
-                                                <span id="main-cta">
+                                                <span className="main-cta">
                                                   Create new action
                                                 </span>
                                               </Button>

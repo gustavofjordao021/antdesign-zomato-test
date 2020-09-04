@@ -103,11 +103,11 @@ const MainNav = (props) => {
                   </div>
                   <Button
                     color="primary"
-                    className="align-items-center"
+                    className="align-items-center main-cta"
                     onClick={() => passedDownToggleNewCollectionForm()}
                   >
                     <i className="ni ni-fat-add"></i>
-                    <span id="main-cta">Collection</span>
+                    <span className="main-cta">Collection</span>
                   </Button>
                 </div>
               </Card>

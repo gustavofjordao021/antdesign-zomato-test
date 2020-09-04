@@ -41,17 +41,19 @@ const Home = () => {
                           </p>
 
                           <Link to="/signup">
-                            <Button className="mt-2 mr-2 mb-2" color="primary">
-                              <span id="main-cta" className="m-4">
-                                Start for free
-                              </span>
+                            <Button
+                              className="mt-2 mr-2 mb-2 main-cta"
+                              color="primary"
+                            >
+                              <span className="m-4">Start for free</span>
                             </Button>
                           </Link>
                           <Link to="/login">
-                            <Button className="mt-2 mr-2 mb-2" color="link">
-                              <span id="main-cta" className="m-4">
-                                Login now
-                              </span>
+                            <Button
+                              className="mt-2 mr-2 mb-2 secondary-cta"
+                              color="link"
+                            >
+                              <span className="m-4">Login now</span>
                             </Button>
                           </Link>
                         </CardBody>

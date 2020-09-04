@@ -18,8 +18,8 @@ const Footer = () => {
               <div className="copyright text-xl-right text-muted pl-4 text-size">
                 <b>
                   Made with{" "}
-                  <span id="main-cta goal-list" role="img" aria-label="love">
-                    💙
+                  <span id="goal-list" role="img" aria-label="love">
+                    💚
                   </span>
                 </b>{" "}
                 by Gustavo Jordão at{" "}

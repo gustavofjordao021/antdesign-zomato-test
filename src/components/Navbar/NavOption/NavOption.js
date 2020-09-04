@@ -24,7 +24,7 @@ const NavOption = (props) => {
             />
           </div>{" "}
           <div className="text-divider">
-            <span className="hello-user">{`${page}`}</span>
+            <span className="hello-user secondary-link">{`${page}`}</span>
           </div>
         </div>
       </Button>

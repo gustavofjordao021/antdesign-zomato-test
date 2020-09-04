@@ -1,3 +1,4 @@
+/* Classes */
 .home-container {
   height: 100%;
   display: flex !important;
@@ -7,6 +8,21 @@
   flex-grow: 1;
 }
 
+.main-cta {
+  font-size: 18px;
+  background-color: #007360 !important;
+  border-color: #007360 !important;
+}
+
+.secondary-cta {
+  font-size: 18px;
+  color: #007360 !important;
+}
+
+.secondary-link {
+  color: #007360 !important;
+}
+
 /* IDS */
 #hero-image {
   width: 500px;
@@ -14,10 +30,6 @@
 
 #hero-title {
   font-size: 32px;
-}
-
-#main-cta {
-  font-size: 18px;
 }
 
 #main-row {

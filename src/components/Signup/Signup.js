@@ -54,12 +54,12 @@ const Signup = () => {
                     id="signup-card"
                     className="bg-secondary shadow border-0 "
                   >
-                    <CardBody className="px-lg-4 py-lg-3">
+                    <CardBody className="px-lg-4 py-lg-2">
                       <div className="text-center mb-2">
                         <p>Sign up</p>
                         <Button
                           color="secondary"
-                          className="login-button-text mb-2"
+                          className="login-button-text mb-2 secondary-cta"
                           onClick={handleGoogle}
                         >
                           <img
@@ -71,7 +71,7 @@ const Signup = () => {
                         </Button>
                         <Button
                           color="secondary"
-                          className="login-button-text m-0"
+                          className="login-button-text m-0 secondary-cta"
                           onClick={handleFacebook}
                         >
                           <img
@@ -228,7 +228,7 @@ const Signup = () => {
                           <Button
                             color="primary"
                             type="submit"
-                            className="login-button-cta"
+                            className="login-button-cta main-cta"
                           >
                             Create account
                           </Button>
