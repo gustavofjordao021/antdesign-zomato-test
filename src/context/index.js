@@ -38,7 +38,6 @@ class AuthProvider extends React.Component {
   isUserLoggedIn = async () => {
     const userFound = await AUTH_SERVICE.getUser();
     if (userFound.data.user) {
-      console.log(userFound.data.user);
       this.setState((prevState) => ({
         ...prevState,
         currentUser: userFound?.data?.user,

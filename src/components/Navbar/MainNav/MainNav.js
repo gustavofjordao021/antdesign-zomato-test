@@ -11,9 +11,11 @@ const Weather = React.lazy(() => import("../Weather/Weather"));
 
 const MainNav = (props) => {
   const {
-    passedDownToggleNewCollectionForm,
     passedDownToggleUserProfileOn,
     passedDownToggleUserProfileOff,
+    passedDownToggleNewCollectionForm,
+    passedDownToggleCollectionDetailsOn,
+    passedDownToggleCollectionDetailsOff,
   } = props;
   return (
     <AuthContext.Consumer>
@@ -52,7 +54,10 @@ const MainNav = (props) => {
                         icon="home-52.svg"
                         page="Home"
                         linkTo="/app"
-                        action={() => passedDownToggleUserProfileOff()}
+                        action={() => {
+                          passedDownToggleUserProfileOff();
+                          passedDownToggleCollectionDetailsOff();
+                        }}
                       />
                     </NavItem>
                   </Container>
@@ -66,6 +71,10 @@ const MainNav = (props) => {
                         icon="folder-15.svg"
                         page={collection.collectionName}
                         linkTo={`/app/collections/${collection._id}`}
+                        action={() => {
+                          passedDownToggleCollectionDetailsOn();
+                          passedDownToggleUserProfileOff();
+                        }}
                       />
                     ))}
                   </Container>
@@ -79,7 +88,10 @@ const MainNav = (props) => {
                         icon="single-01.svg"
                         page="Profile"
                         linkTo="/app/user-profile"
-                        action={() => passedDownToggleUserProfileOn()}
+                        action={() => {
+                          passedDownToggleUserProfileOn();
+                          passedDownToggleCollectionDetailsOff();
+                        }}
                       />
                     </NavItem>
                     <NavItem className="nav-button">

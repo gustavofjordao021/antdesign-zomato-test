@@ -7,6 +7,7 @@ import MainNav from "../Navbar/MainNav/MainNav";
 import UserProfile from "../UserProfile/UserProfile";
 import NewCollection from "../NewCollection/NewCollection";
 import CollectionBlock from "../CollectionBlock/CollectionBlock";
+import CollectionDetails from "../CollectionDetails/CollectionDetails";
 
 import "./ApplicationHome.css";
 
@@ -14,9 +15,10 @@ import { Row, Col, Card, Button, CardDeck } from "reactstrap";
 
 class ApplicationHome extends Component {
   state = {
+    isUserProfileVisible: this.props.visibleUserProfile,
     // isNewPlantFormVisible: false,
+    isCollectionDetailsVisible: this.props.visibleUserProfile,
     isNewCollectionFormVisible: false,
-    isUserProfileVisible: false,
   };
 
   // toggleNewPlantFormOn = () => {
@@ -32,6 +34,20 @@ class ApplicationHome extends Component {
   //     isNewPlantFormVisible: false,
   //   }));
   // };
+
+  toggleCollectionDetailsOn = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      isCollectionDetailsVisible: true,
+    }));
+  };
+
+  toggleCollectionDetailsOff = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      isCollectionDetailsVisible: false,
+    }));
+  };
 
   toggleNewCollectionFormOn = () => {
     this.setState((prevState) => ({
@@ -62,7 +78,7 @@ class ApplicationHome extends Component {
   };
 
   render() {
-    const { isUserProfileVisible } = this.state;
+    const { isUserProfileVisible, isCollectionDetailsVisible } = this.state;
     return (
       <AuthContext.Consumer>
         {(context) => {
@@ -81,9 +97,20 @@ class ApplicationHome extends Component {
                       }
                       passedDownToggleUserProfileOn={this.toggleUserProfileOn}
                       passedDownToggleUserProfileOff={this.toggleUserProfileOff}
+                      passedDownToggleCollectionDetailsOn={
+                        this.toggleCollectionDetailsOn
+                      }
+                      passedDownToggleCollectionDetailsOff={
+                        this.toggleCollectionDetailsOff
+                      }
                     />
                     <Col className="p-0 flex-container main-container full-height full-width">
-                      {!isUserProfileVisible ? (
+                      {isUserProfileVisible && !isCollectionDetailsVisible ? (
+                        <UserProfile />
+                      ) : !isUserProfileVisible &&
+                        isCollectionDetailsVisible ? (
+                        <CollectionDetails />
+                      ) : (
                         <Card
                           className="full-height full-width flex-container main-container bg-secondary"
                           id="card-container"
@@ -98,11 +125,18 @@ class ApplicationHome extends Component {
                           ) : currentUser.collections.length > 0 ? (
                             currentUser.collections.map((collection, id) => (
                               <CollectionBlock
+                                collectionId={collection._id}
                                 collectionName={collection.collectionName}
                                 collectionDescription={
                                   collection.collectionDescription
                                 }
                                 collectionPlants={collection.collectionPlants}
+                                passedDownToggleCollectionDetailsOn={
+                                  this.toggleCollectionDetailsOn
+                                }
+                                passedDownToggleCollectionDetailsOff={
+                                  this.toggleCollectionDetailsOff
+                                }
                               />
                             ))
                           ) : (
@@ -129,8 +163,6 @@ class ApplicationHome extends Component {
                             </CardDeck>
                           )}
                         </Card>
-                      ) : (
-                        <UserProfile />
                       )}
                     </Col>
                   </Row>

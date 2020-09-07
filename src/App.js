@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
+import { AuthContext } from "./context";
+
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Footer from "./components/Footer/Footer";
-import GoalDetails from "./components/GoalDetails/GoalDetails";
-import { AuthContext } from "./context";
 import ApplicationHome from "./components/ApplicationHome/ApplicationHome";
 
 import "./App.css";
@@ -31,17 +31,32 @@ const App = () => {
               <Route
                 exact
                 path="/app"
-                render={() => <ApplicationHome visibleUserProfile={false} />}
+                render={() => (
+                  <ApplicationHome
+                    visibleUserProfile={false}
+                    visibleCollectionDetails={false}
+                  />
+                )}
               />
               <Route
                 exact
                 path="/app/collections/:collectionId"
-                component={GoalDetails}
+                render={() => (
+                  <ApplicationHome
+                    visibleUserProfile={false}
+                    visibleCollectionDetails={true}
+                  />
+                )}
               />
               <Route
                 exact
                 path="/app/user-profile"
-                render={() => <ApplicationHome visibleUserProfile={true} />}
+                render={() => (
+                  <ApplicationHome
+                    visibleUserProfile={true}
+                    visibleCollectionDetails={false}
+                  />
+                )}
               />
             </Switch>
             {isLoggedIn ? "" : <Footer />}

@@ -4,15 +4,11 @@ import { Redirect } from "react-router-dom";
 import NewPlant from "../NewPlant/NewPlant";
 import NewAction from "../NewAction/NewAction";
 import MainNav from "../Navbar/MainNav/MainNav";
-import ActionLine from "../ActionLine/ActionLine";
-import UpdateGoal from "../UpdateGoal/UpdateGoal";
-import ProgressBar from "../ProgressBar/ProgressBar";
 
 import { AuthContext } from "../../context/index";
 import PLANT_SERVICE from "../../services/PlantService";
-import ACTION_SERVICE from "../../services/ActionService";
 
-import "./GoalDetails.css";
+import "./CollectionDetails.css";
 
 import {
   Button,
@@ -150,72 +146,6 @@ class GoalDetails extends Component {
     this.setState({ [name]: value });
   };
 
-  actionCheck = (actionId, syncUser, syncUpdate) => {
-    const goalId = this.props.match.params.goalId;
-    ACTION_SERVICE.actionCheck(goalId, actionId)
-      .then((responseFromServer) => {
-        const { updatedUser } = responseFromServer.data;
-        syncUser(updatedUser);
-        const {
-          data: { errorMessage, successMessage },
-        } = responseFromServer;
-        if (errorMessage) {
-          this.setState({
-            errorMessage,
-            displayForm: this.props.isShown,
-          });
-        } else {
-          this.setState({
-            successMessage,
-            displayForm: false,
-          });
-          syncUser(updatedUser);
-          syncUpdate();
-        }
-      })
-      .catch((err) => {
-        if (err.response && err.response.data) {
-          this.setState((prevState) => ({
-            ...prevState,
-            errorMessage: err.response.data.message,
-          }));
-        }
-      });
-  };
-
-  actionUncheck = (actionId, syncUser, syncUpdate) => {
-    const goalId = this.props.match.params.goalId;
-    ACTION_SERVICE.actionUncheck(goalId, actionId)
-      .then((responseFromServer) => {
-        const { updatedUser } = responseFromServer.data;
-        syncUser(updatedUser);
-        const {
-          data: { errorMessage, successMessage },
-        } = responseFromServer;
-        if (errorMessage) {
-          this.setState({
-            errorMessage,
-            displayForm: this.props.isShown,
-          });
-        } else {
-          this.setState({
-            successMessage,
-            displayForm: false,
-          });
-          syncUser(updatedUser);
-          syncUpdate();
-        }
-      })
-      .catch((err) => {
-        if (err.response && err.response.data) {
-          this.setState((prevState) => ({
-            ...prevState,
-            errorMessage: err.response.data.message,
-          }));
-        }
-      });
-  };
-
   toggleActionUpdateFormOn = () => {
     this.setState((prevState) => ({
       ...prevState,
@@ -237,7 +167,6 @@ class GoalDetails extends Component {
       goalDueDate,
       toggleGoalDetail,
       isActionFormVisible,
-      isActionUpdateVisible,
     } = this.state;
     return (
       <AuthContext.Consumer>
@@ -295,27 +224,14 @@ class GoalDetails extends Component {
                                   </div>
                                   <div className="title-container">
                                     <div className="full-width align-items-left">
-                                      <h1 className="text-muted">
-                                        Progress:{" "}
-                                        <ProgressBar
-                                          userData={currentUser}
-                                          {...this.props}
-                                        />
-                                      </h1>
+                                      <h1 className="text-muted">Progress: </h1>
                                     </div>
                                     <div className="full-width">Actions:</div>
                                     <div className="full-width">Completed:</div>
                                   </div>
                                 </div>
                               ) : (
-                                <UpdateGoal
-                                  {...this.props}
-                                  isDone={this.toggleGoalDetailsOff}
-                                  goalInfo={this.state}
-                                  updateGoalId={this.props.match.params}
-                                  syncUpdate={isUserLoggedIn}
-                                  syncUser={syncUser}
-                                />
+                                ""
                               )}
                             </CardHeader>
                             <CardBody
@@ -346,40 +262,7 @@ class GoalDetails extends Component {
                                               this.props.match.params.goalId
                                           )[0]
                                           .goalActions.map((action) => {
-                                            return (
-                                              <>
-                                                <ActionLine
-                                                  {...this.props}
-                                                  actionId={action._id}
-                                                  actionData={action}
-                                                  isUpdating={
-                                                    isActionUpdateVisible
-                                                  }
-                                                  toggleUpdateFormOn={
-                                                    this
-                                                      .toggleActionUpdateFormOn
-                                                  }
-                                                  toggleUpdateFormOff={
-                                                    this
-                                                      .toggleActionUpdateFormOff
-                                                  }
-                                                  checkAction={() =>
-                                                    this.actionCheck(
-                                                      action._id,
-                                                      syncUser,
-                                                      isLoggedIn
-                                                    )
-                                                  }
-                                                  uncheckAction={() =>
-                                                    this.actionUncheck(
-                                                      action._id,
-                                                      syncUser,
-                                                      isLoggedIn
-                                                    )
-                                                  }
-                                                />
-                                              </>
-                                            );
+                                            return <></>;
                                           })
                                       ) : !isActionFormVisible ? (
                                         <>

@@ -5,16 +5,27 @@ import {
   Card,
   Button,
   CardImg,
+  NavItem,
+  NavLink,
   CardText,
   CardBody,
   CardTitle,
 } from "reactstrap";
 
 const CollectionBlock = (props) => {
-  const { collectionName, collectionDescription, collectionPlants } = props;
+  const {
+    collectionId,
+    collectionName,
+    collectionPlants,
+    collectionDescription,
+    passedDownToggleCollectionDetailsOn,
+  } = props;
+
+  let Redirect = () => {
+    window.location.href = `/app/collections/${collectionId}`;
+  };
   return (
     <>
-      {console.log(collectionPlants)}
       {collectionPlants ? (
         <Card className="collection-container shadow">
           <CardImg
@@ -35,8 +46,14 @@ const CollectionBlock = (props) => {
                 <i className="ni ni-fat-add"></i>
                 <span>Plant</span>
               </Button>
-              <Button className="my-1 mx-2 secondary-cta">
-                <span>Delete</span>
+              <Button
+                className="my-1 mx-2 secondary-cta"
+                onClick={() => {
+                  passedDownToggleCollectionDetailsOn();
+                  Redirect();
+                }}
+              >
+                <span>Details</span>
               </Button>
             </div>
           </CardBody>
@@ -53,11 +70,18 @@ const CollectionBlock = (props) => {
             <CardText>{collectionDescription}</CardText>
             <CardTitle>{collectionName}</CardTitle>
             <div className="flex-center">
-              <Button className="my-1 mx-2 main-cta" color="primary">
-                Primary
+              <Button
+                className="my-1 mx-2 flex-center main-cta"
+                color="primary"
+              >
+                <i className="ni ni-fat-add"></i>
+                <span>Plant</span>
               </Button>
-              <Button className="my-1 mx-2 secondary-cta" color="secondary">
-                Primary
+              <Button
+                className="my-1 mx-2 secondary-cta"
+                onClick={() => passedDownToggleCollectionDetailsOn()}
+              >
+                <span>Details</span>
               </Button>
             </div>
           </CardBody>
