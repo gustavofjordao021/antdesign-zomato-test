@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import "./HomeNavBar.css";
 
 import {
+  Col,
+  Nav,
+  Row,
   Button,
-  UncontrolledCollapse,
-  NavbarBrand,
   Navbar,
   NavItem,
   NavLink,
-  Nav,
   Container,
-  Row,
-  Col,
+  NavbarBrand,
+  UncontrolledCollapse,
 } from "reactstrap";
 
 const HomeNavBar = () => {

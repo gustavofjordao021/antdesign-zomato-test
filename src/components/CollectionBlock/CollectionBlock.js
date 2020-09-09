@@ -1,4 +1,6 @@
 import React from "react";
+import { Route } from "react-router-dom";
+
 import "./CollectionBlock.css";
 
 import {
@@ -22,8 +24,13 @@ const CollectionBlock = (props) => {
   } = props;
 
   let Redirect = () => {
-    window.location.href = `/app/collections/${collectionId}`;
+    window.history.pushState(
+      { collectionId },
+      "",
+      `/app/collections/${collectionId}`
+    );
   };
+
   return (
     <>
       {collectionPlants ? (
@@ -46,15 +53,23 @@ const CollectionBlock = (props) => {
                 <i className="ni ni-fat-add"></i>
                 <span>Plant</span>
               </Button>
-              <Button
-                className="my-1 mx-2 secondary-cta"
-                onClick={() => {
-                  passedDownToggleCollectionDetailsOn();
-                  Redirect();
-                }}
-              >
-                <span>Details</span>
-              </Button>
+              <NavItem id="collection-block-nav-button">
+                <NavLink
+                  className="nav-link-icon"
+                  to={`/app/collections/${collectionId}`}
+                  tag={Route}
+                >
+                  <Button
+                    className="my-1 mx-2 secondary-cta"
+                    onClick={() => {
+                      passedDownToggleCollectionDetailsOn();
+                      Redirect();
+                    }}
+                  >
+                    <span>Details</span>
+                  </Button>
+                </NavLink>
+              </NavItem>
             </div>
           </CardBody>
         </Card>
