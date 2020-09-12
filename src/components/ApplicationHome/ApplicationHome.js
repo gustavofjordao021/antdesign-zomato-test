@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useParams } from "react-router-dom";
 
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
@@ -83,6 +84,7 @@ class ApplicationHome extends Component {
       <AuthContext.Consumer>
         {(context) => {
           const { currentUser, isLoggedIn } = context.state;
+          let collectionId = useParams();
           return (
             <>
               {!isLoggedIn ? (

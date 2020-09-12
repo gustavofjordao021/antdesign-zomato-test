@@ -5,9 +5,7 @@ import "./CollectionCard.css";
 import { Row, Col, Card, Form, Input, CardBody, FormGroup } from "reactstrap";
 
 const CollectionCard = (props) => {
-  const {
-    userLoggedIn: { email, username, firstName, lastName },
-  } = props;
+  const {} = props;
   return (
     <Card className="m-5">
       <CardBody>
@@ -25,7 +23,7 @@ const CollectionCard = (props) => {
                   </label>
                   <Input
                     className="form-control-alternative"
-                    defaultValue={username}
+                    defaultValue={"Test"}
                     id="input-username"
                     placeholder="Username"
                     type="text"
@@ -40,7 +38,7 @@ const CollectionCard = (props) => {
                   <Input
                     className="form-control-alternative"
                     id="input-email"
-                    defaultValue={email}
+                    defaultValue={"Test"}
                     placeholder="Email"
                     type="email"
                   />
@@ -58,7 +56,7 @@ const CollectionCard = (props) => {
                   </label>
                   <Input
                     className="form-control-alternative"
-                    defaultValue={firstName}
+                    defaultValue={"Test"}
                     id="input-first-name"
                     placeholder="First name"
                     type="text"
@@ -75,7 +73,7 @@ const CollectionCard = (props) => {
                   </label>
                   <Input
                     className="form-control-alternative"
-                    defaultValue={lastName}
+                    defaultValue={"Test"}
                     id="input-last-name"
                     placeholder="Last name"
                     type="text"

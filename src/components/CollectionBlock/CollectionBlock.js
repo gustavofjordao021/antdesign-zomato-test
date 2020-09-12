@@ -94,7 +94,10 @@ const CollectionBlock = (props) => {
               </Button>
               <Button
                 className="my-1 mx-2 secondary-cta"
-                onClick={() => passedDownToggleCollectionDetailsOn()}
+                onClick={() => {
+                  passedDownToggleCollectionDetailsOn();
+                  Redirect();
+                }}
               >
                 <span>Details</span>
               </Button>
