@@ -28,36 +28,24 @@ const App = () => {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route
-                exact
-                path="/app"
-                render={() => (
-                  <ApplicationHome
-                    visibleUserProfile={false}
-                    visibleCollectionDetails={false}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path="/app/collections/:collectionId"
-                render={() => (
-                  <ApplicationHome
-                    visibleUserProfile={false}
-                    visibleCollectionDetails={true}
-                  />
-                )}
-              />
-              <Route
-                exact
-                path="/app/user-profile"
-                render={() => (
-                  <ApplicationHome
-                    visibleUserProfile={true}
-                    visibleCollectionDetails={false}
-                  />
-                )}
-              />
+              <Route exact path="/app">
+                <ApplicationHome
+                  visibleUserProfile={false}
+                  visibleCollectionDetails={false}
+                />
+              </Route>
+              <Route exact path="/app/collections/:collectionId">
+                <ApplicationHome
+                  visibleUserProfile={false}
+                  visibleCollectionDetails={true}
+                />
+              </Route>
+              <Route exact path="/app/user-profile">
+                <ApplicationHome
+                  visibleUserProfile={true}
+                  visibleCollectionDetails={false}
+                />
+              </Route>
             </Switch>
             {isLoggedIn ? "" : <Footer />}
           </div>

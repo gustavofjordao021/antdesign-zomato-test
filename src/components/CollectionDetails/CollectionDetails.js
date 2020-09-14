@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
-import { Redirect, useParams } from "react-router-dom";
+import {
+  Redirect,
+  useParams,
+  useLocation,
+  useRouteMatch,
+} from "react-router-dom";
 
 import { AuthContext } from "../../context/index";
-import PLANT_SERVICE from "../../services/PlantService";
+// import PLANT_SERVICE from "../../services/PlantService";
 import COLLECTION_SERVICE from "../../services/CollectionService";
 import CollectionCard from "./CollectionCard/CollectionCard";
 
@@ -10,19 +15,18 @@ import "./CollectionDetails.css";
 
 import { Col, Row, Card } from "reactstrap";
 
-const CollectionDetails = () => {
+const CollectionDetails = (props) => {
+  let collectionId = useParams();
+  console.log(collectionId);
+  useEffect(() =>
+    COLLECTION_SERVICE.retrieveCollectionDetails(collectionId)
+      .then((collection) => console.log(collection))
+      .catch((err) => console.log(err))
+  );
   return (
     <AuthContext.Consumer>
       {(context) => {
         const { isLoggedIn } = context.state;
-        {
-          /* console.log({ collectionId }); */
-        }
-        {
-          /* useEffect(() =>
-          COLLECTION_SERVICE.retrieveCollections(collectionId).then().catch()
-        ); */
-        }
         return (
           <>
             {!isLoggedIn ? (

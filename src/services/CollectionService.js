@@ -12,8 +12,8 @@ const COLLECTION_SERVICE = {
     return service.post("/app/create-collection", newCollectionData);
   },
 
-  retrieveCollections() {
-    return service.get(`/app/all-collections`);
+  retrieveCollectionDetails(collectionId) {
+    return service.get(`/app/${collectionId}`);
   },
 
   updateCollection(collectionId, updatedCollectionData) {
