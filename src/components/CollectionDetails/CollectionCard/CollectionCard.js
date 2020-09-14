@@ -5,7 +5,7 @@ import "./CollectionCard.css";
 import { Row, Col, Card, Form, Input, CardBody, FormGroup } from "reactstrap";
 
 const CollectionCard = (props) => {
-  // const {} = props;
+  const { collectionInfo } = props;
   return (
     <Card className="m-5">
       <CardBody>

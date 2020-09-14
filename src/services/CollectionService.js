@@ -13,7 +13,7 @@ const COLLECTION_SERVICE = {
   },
 
   retrieveCollectionDetails(collectionId) {
-    return service.get(`/app/${collectionId}`);
+    return service.get(`/app/collections/${collectionId}`);
   },
 
   updateCollection(collectionId, updatedCollectionData) {

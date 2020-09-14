@@ -27,7 +27,7 @@ const HomeNavBar = () => {
             <img
               id="brand-logo"
               alt="brand-logo"
-              src={require("../../../assets/img/brand/logo-goalify.svg")}
+              src={require("../../../assets/img/brand/logo-flor.svg")}
             />
           </NavbarBrand>
           <button className="navbar-toggler" id="navbar-collapse-main">
@@ -40,7 +40,7 @@ const HomeNavBar = () => {
                   <Link to="/">
                     <img
                       alt="..."
-                      src={require("../../../assets/img/brand/logo-goalify.svg")}
+                      src={require("../../../assets/img/brand/logo-flor.svg")}
                     />
                   </Link>
                 </Col>

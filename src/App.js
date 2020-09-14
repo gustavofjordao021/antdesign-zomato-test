@@ -36,14 +36,14 @@ const App = () => {
               </Route>
               <Route exact path="/app/collections/:collectionId">
                 <ApplicationHome
-                  visibleUserProfile={false}
-                  visibleCollectionDetails={true}
+                // visibleUserProfile={false}
+                // visibleCollectionDetails={true}
                 />
               </Route>
               <Route exact path="/app/user-profile">
                 <ApplicationHome
-                  visibleUserProfile={true}
-                  visibleCollectionDetails={false}
+                // visibleUserProfile={true}
+                // visibleCollectionDetails={false}
                 />
               </Route>
             </Switch>

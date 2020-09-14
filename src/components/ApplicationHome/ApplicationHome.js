@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/index";
 
 import MainNav from "../Navbar/MainNav/MainNav";
@@ -14,60 +14,57 @@ import { Row, Col, Card, Button, CardDeck } from "reactstrap";
 
 const ApplicationHome = (props) => {
   const [state, setState] = useState({
-    isUserProfileVisible: this.props.visibleUserProfile,
-    isCollectionDetailsVisible: this.props.visibleUserProfile,
-    isNewCollectionFormVisible: false,
+    isNewCollectionFormVisible: "",
+    isUserProfileVisible: "",
+    isCollectionDetailsVisible: "",
   });
 
-  toggleCollectionDetailsOn = () => {
+  const toggleCollectionDetailsOn = () => {
     setState({
-      isUserProfileVisible: this.props.visibleUserProfile,
-      isCollectionDetailsVisible: true,
       isNewCollectionFormVisible: false,
-    });
-  };
-
-  toggleCollectionDetailsOff = () => {
-    setState({
-      isUserProfileVisible: this.props.visibleUserProfile,
-      isCollectionDetailsVisible: false,
-      isNewCollectionFormVisible: false,
-    });
-  };
-
-  toggleNewCollectionFormOn = () => {
-    this.setState((prevState) => ({
-      ...prevState,
-      isNewCollectionFormVisible: true,
-    }));
-  };
-
-  toggleNewCollectionFormOff = () => {
-    this.setState((prevState) => ({
-      ...prevState,
-      isNewCollectionFormVisible: false,
-    }));
-  };
-
-  toggleUserProfileOn = () => {
-    this.setState((prevState) => ({
-      ...prevState,
-      isUserProfileVisible: true,
-    }));
-  };
-
-  toggleUserProfileOff = () => {
-    this.setState((prevState) => ({
-      ...prevState,
       isUserProfileVisible: false,
-    }));
+      isCollectionDetailsVisible: true,
+    });
+  };
+
+  const toggleNewCollectionFormOn = () => {
+    setState({
+      isNewCollectionFormVisible: true,
+      isUserProfileVisible: false,
+      isCollectionDetailsVisible: false,
+    });
+  };
+
+  const toggleNewCollectionFormOff = () => {
+    setState({
+      isNewCollectionFormVisible: false,
+      isUserProfileVisible: false,
+      isCollectionDetailsVisible: false,
+    });
+  };
+
+  const toggleUserProfileOn = () => {
+    setState({
+      isNewCollectionFormVisible: false,
+      isUserProfileVisible: true,
+      isCollectionDetailsVisible: false,
+    });
+  };
+
+  const toggleUserProfileOff = () => {
+    setState({
+      isNewCollectionFormVisible: false,
+      isUserProfileVisible: false,
+      isCollectionDetailsVisible: false,
+    });
   };
 
   const {
+    isNewCollectionFormVisible,
     isUserProfileVisible,
-    visibleCollectionDetails,
     isCollectionDetailsVisible,
   } = state;
+
   return (
     <AuthContext.Consumer>
       {(context) => {
@@ -82,15 +79,12 @@ const ApplicationHome = (props) => {
                   <MainNav
                     userLoggedIn={currentUser}
                     passedDownToggleNewCollectionForm={
-                      this.toggleNewCollectionFormOn
+                      toggleNewCollectionFormOn
                     }
-                    passedDownToggleUserProfileOn={this.toggleUserProfileOn}
-                    passedDownToggleUserProfileOff={this.toggleUserProfileOff}
+                    passedDownToggleUserProfileOn={toggleUserProfileOn}
+                    passedDownToggleUserProfileOff={toggleUserProfileOff}
                     passedDownToggleCollectionDetailsOn={
-                      this.toggleCollectionDetailsOn
-                    }
-                    passedDownToggleCollectionDetailsOff={
-                      this.toggleCollectionDetailsOff
+                      toggleCollectionDetailsOn
                     }
                   />
                   <Col className="p-0 flex-container main-container full-height full-width">
@@ -98,18 +92,18 @@ const ApplicationHome = (props) => {
                       <UserProfile />
                     ) : !isUserProfileVisible && isCollectionDetailsVisible ? (
                       <CollectionDetails
-                        collectionParams={visibleCollectionDetails}
+                      // collectionParams={visibleCollectionDetails}
                       />
                     ) : (
                       <Card
                         className="full-height full-width flex-container main-container bg-secondary"
                         id="card-container"
                       >
-                        {this.state.isNewCollectionFormVisible ? (
+                        {isNewCollectionFormVisible ? (
                           <CardDeck className="flex-center full-width full-height">
                             <NewCollection
-                              isOpen={this.state.isNewCollectionFormVisible}
-                              isDone={this.toggleNewCollectionFormOff}
+                              isOpen={isNewCollectionFormVisible}
+                              isDone={toggleNewCollectionFormOff}
                             />
                           </CardDeck>
                         ) : currentUser.collections.length > 0 ? (
@@ -122,10 +116,7 @@ const ApplicationHome = (props) => {
                               }
                               collectionPlants={collection.collectionPlants}
                               passedDownToggleCollectionDetailsOn={
-                                this.toggleCollectionDetailsOn
-                              }
-                              passedDownToggleCollectionDetailsOff={
-                                this.toggleCollectionDetailsOff
+                                toggleCollectionDetailsOn
                               }
                             />
                           ))

@@ -11,7 +11,7 @@ const Footer = () => {
           <Row className="align-items-center justify-content-xl-between">
             <Col xl="6">
               <div className="copyright text-center text-xl-left text-muted pl-4">
-                © 2020 Goalify
+                © 2020 Flor
               </div>
             </Col>
             <Col xl="6">

@@ -10,6 +10,10 @@
   list-style: none !important;
 }
 
+.hello-user {
+  color: #007360;
+}
+
 /* IDs */
 #overflow-nav {
   z-index: 200;

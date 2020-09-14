@@ -15,7 +15,6 @@ const MainNav = (props) => {
     passedDownToggleUserProfileOff,
     passedDownToggleNewCollectionForm,
     passedDownToggleCollectionDetailsOn,
-    passedDownToggleCollectionDetailsOff,
   } = props;
   return (
     <AuthContext.Consumer>
@@ -33,18 +32,21 @@ const MainNav = (props) => {
                   <Link
                     to="/app"
                     className="navbar-nav navbar-brand"
-                    onClick={() => passedDownToggleUserProfileOff()}
+                    onClick={() => {
+                      passedDownToggleUserProfileOff();
+                    }}
                   >
-                    <div className="flex-center center-logo">
+                    <div className="flex-center m-2">
                       <div className="logo-divider">
                         <img
+                          id="brand-logo"
                           alt="reversed logo"
-                          src={require("../../../assets/img/brand/logo-goalify.svg")}
+                          src={require("../../../assets/img/brand/logo-flor.svg")}
                           className="mr-2"
                         />
                       </div>{" "}
                       <div>
-                        <span className="hello-user">Goalify</span>
+                        <span className="hello-user">Flor</span>
                       </div>
                     </div>
                   </Link>{" "}
@@ -56,7 +58,6 @@ const MainNav = (props) => {
                         linkTo="/app"
                         action={() => {
                           passedDownToggleUserProfileOff();
-                          passedDownToggleCollectionDetailsOff();
                         }}
                       />
                     </NavItem>
@@ -73,7 +74,6 @@ const MainNav = (props) => {
                         linkTo={`/app/collections/${collection._id}`}
                         action={() => {
                           passedDownToggleCollectionDetailsOn();
-                          passedDownToggleUserProfileOff();
                         }}
                       />
                     ))}
@@ -90,7 +90,6 @@ const MainNav = (props) => {
                         linkTo="/app/user-profile"
                         action={() => {
                           passedDownToggleUserProfileOn();
-                          passedDownToggleCollectionDetailsOff();
                         }}
                       />
                     </NavItem>
