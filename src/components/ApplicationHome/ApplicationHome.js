@@ -14,9 +14,9 @@ import { Row, Col, Card, Button, CardDeck } from "reactstrap";
 
 const ApplicationHome = (props) => {
   const [state, setState] = useState({
-    isNewCollectionFormVisible: "",
     isUserProfileVisible: "",
     isCollectionDetailsVisible: "",
+    isNewCollectionFormVisible: "",
   });
 
   const toggleCollectionDetailsOn = () => {
@@ -60,9 +60,9 @@ const ApplicationHome = (props) => {
   };
 
   const {
-    isNewCollectionFormVisible,
     isUserProfileVisible,
     isCollectionDetailsVisible,
+    isNewCollectionFormVisible,
   } = state;
 
   return (
@@ -91,9 +91,7 @@ const ApplicationHome = (props) => {
                     {isUserProfileVisible && !isCollectionDetailsVisible ? (
                       <UserProfile />
                     ) : !isUserProfileVisible && isCollectionDetailsVisible ? (
-                      <CollectionDetails
-                      // collectionParams={visibleCollectionDetails}
-                      />
+                      <CollectionDetails />
                     ) : (
                       <Card
                         className="full-height full-width flex-container main-container bg-secondary"

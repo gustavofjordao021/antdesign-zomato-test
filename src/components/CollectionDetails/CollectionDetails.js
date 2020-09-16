@@ -8,16 +8,23 @@ import COLLECTION_SERVICE from "../../services/CollectionService";
 
 import "./CollectionDetails.css";
 
-import { Col, Row, Card } from "reactstrap";
+import { Col, Row, Card, CardHeader } from "reactstrap";
 
-const CollectionDetails = (props) => {
-  const [collectionInfo, setCollectionInfo] = useState("");
-  let { collectionId } = useParams();
+const CollectionDetails = () => {
+  const [collectionInfo, setCollectionInfo] = useState({
+    collectionId: useParams(),
+    collectionData: "",
+  });
+
+  const { collectionId } = collectionInfo.collectionId;
 
   useEffect(() => {
     COLLECTION_SERVICE.retrieveCollectionDetails(collectionId)
-      .then(async (collection) => {
-        await setCollectionInfo(collection.data);
+      .then(async (returnedCollection) => {
+        await setCollectionInfo({
+          ...collectionInfo,
+          collectionData: returnedCollection.data,
+        });
       })
       .catch((err) => console.log(err));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -35,15 +42,15 @@ const CollectionDetails = (props) => {
             ) : (
               <>
                 <Row className="flex-center full-height">
-                  {console.log(collectionInfo)}
                   <Col className="p-0 flex-container main-container full-height full-width">
+                    <CardHeader className="bg-white full-width" />
                     <Card className="full-height bg-secondary shadow main-container">
                       <div>
                         {" "}
                         <div>{collectionInfo.collectionName}</div>
                         <div>{collectionInfo.collectionDescription}</div>
+                        {/* <CollectionCard collectionInfo={collectionInfo} /> */}
                       </div>
-                      {/* <CollectionCard collectionInfo={collectionInfo} /> */}
                     </Card>
                   </Col>
                 </Row>

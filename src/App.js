@@ -35,16 +35,10 @@ const App = () => {
                 />
               </Route>
               <Route exact path="/app/collections/:collectionId">
-                <ApplicationHome
-                // visibleUserProfile={false}
-                // visibleCollectionDetails={true}
-                />
+                <ApplicationHome />
               </Route>
               <Route exact path="/app/user-profile">
-                <ApplicationHome
-                // visibleUserProfile={true}
-                // visibleCollectionDetails={false}
-                />
+                <ApplicationHome />
               </Route>
             </Switch>
             {isLoggedIn ? "" : <Footer />}

@@ -26,7 +26,7 @@ const WeatherWidget = () => {
           });
         });
       }),
-    []
+    [weather.weatherInfo, weather.locationInfo, weather.weatherIcon]
   ); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
