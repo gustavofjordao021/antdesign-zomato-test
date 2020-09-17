@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect, useParams } from "react-router-dom";
 
-import CollectionCard from "./CollectionCard/CollectionCard";
+// import CollectionCard from "./CollectionCard/CollectionCard";
 import { AuthContext } from "../../context/index";
 // import PLANT_SERVICE from "../../services/PlantService";
 import COLLECTION_SERVICE from "../../services/CollectionService";
