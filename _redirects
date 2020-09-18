@@ -1,4 +1,2 @@
 # Redirect rules for Netlify SPA routing
-/app        /
 /signup     /
-/signup#_=_ /
