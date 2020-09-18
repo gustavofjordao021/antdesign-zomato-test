@@ -29,7 +29,7 @@ const AUTH_SERVICE = {
   },
 
   getUser() {
-    return service.get("/auth/isLoggedIn/");
+    return service.get("/auth/isLoggedIn");
   },
 
   uploadAvatar(avatar) {
