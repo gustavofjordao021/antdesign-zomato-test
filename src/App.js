@@ -29,10 +29,7 @@ const App = () => {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/app">
-                <ApplicationHome
-                  visibleUserProfile={false}
-                  visibleCollectionDetails={false}
-                />
+                <ApplicationHome />
               </Route>
               <Route exact path="/app/collections/:collectionId">
                 <ApplicationHome />

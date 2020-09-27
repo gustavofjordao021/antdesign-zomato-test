@@ -107,6 +107,7 @@ const ApplicationHome = (props) => {
                         ) : currentUser.collections.length > 0 ? (
                           currentUser.collections.map((collection, id) => (
                             <CollectionBlock
+                              key={id}
                               collectionId={collection._id}
                               collectionName={collection.collectionName}
                               collectionDescription={
@@ -129,7 +130,7 @@ const ApplicationHome = (props) => {
                                 id="secondary-goal-add"
                                 color="secondary"
                                 className="align-items-center title secondary-cta"
-                                onClick={() => this.toggleNewCollectionFormOn()}
+                                onClick={() => toggleNewCollectionFormOn()}
                               >
                                 <i className="ni ni-fat-add"></i>
                                 <span className="secondary-cta">

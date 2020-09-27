@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useParams } from "react-router-dom";
 
 import ReactDatetime from "react-datetime";
 import PLANT_SERVICE from "../../services/PlantService";
@@ -31,7 +32,12 @@ const DEFAULT_STATE = {
 
 class newPlantForm extends Component {
   state = {
-    ...DEFAULT_STATE,
+    plantName: "",
+    plantPicture: "",
+    plantFileName: "",
+    plantImageUploaded: false,
+    plantDate: "",
+    collectionId: this.props.collectionId,
     errorMessage: "",
     successMessage: "",
   };
@@ -68,11 +74,11 @@ class newPlantForm extends Component {
       .catch();
   };
 
-  handleNewPlantSubmit = (e, user, cb, toggle) => {
+  handleNewPlantSubmit = (e, user, cb) => {
     e.preventDefault();
     PLANT_SERVICE.newPlant({
       ...this.state,
-      plantOwner: user._id,
+      plantOwner: user,
     })
       .then((responseFromServer) => {
         const { currentUser } = responseFromServer.data;
@@ -87,7 +93,7 @@ class newPlantForm extends Component {
             displayForm: this.props.isShown,
           });
         }
-        this.props.isDone(this.state.isDone);
+        this.props.isDone(false);
       })
       .catch((err) => {
         if (err.response && err.response.data) {
@@ -114,7 +120,7 @@ class newPlantForm extends Component {
           return (
             <>
               <Modal
-                classNamem="modal-dialog-centered"
+                className="modal-dialog-centered"
                 isOpen={this.props.isOpen}
               >
                 <Card
@@ -123,7 +129,7 @@ class newPlantForm extends Component {
                 >
                   <CardHeader className="bg-transparent brand-logo">
                     <div className="text-center">
-                      <h2 className="title">Add your plant</h2>
+                      <h2 className="hello-user">Add your plant</h2>
                       <p className="mb-0 text-muted line-height-adjust">
                         Add your new plant information below. We'll use its
                         image to help you identify and take care of it!
@@ -240,16 +246,20 @@ class newPlantForm extends Component {
                       )}
                       <div className="text-center">
                         <Button
-                          className="mt-2 ml-2 mb-2"
+                          className="mt-2 ml-2 mb-2 main-cta"
                           color="primary"
                           type="submit"
                         >
                           Add plant
                         </Button>
                         <Button
-                          className="mt-2 mr-2 mb-2 cancel-link"
+                          className="mt-2 mr-2 mb-2 secondary-cta"
                           color="secondary"
-                          onClick={() => this.toggleFormOff()}
+                          onClick={
+                            this.toggleFormOff
+                              ? () => this.toggleFormOff()
+                              : () => this.props.isDone(false)
+                          }
                         >
                           <span className="m-4">Cancel</span>
                         </Button>

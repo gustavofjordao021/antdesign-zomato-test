@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./CollectionBlock.css";
 
@@ -8,7 +8,6 @@ import {
   Button,
   CardImg,
   NavItem,
-  NavLink,
   CardText,
   CardBody,
   CardTitle,
@@ -22,14 +21,6 @@ const CollectionBlock = (props) => {
     collectionDescription,
     passedDownToggleCollectionDetailsOn,
   } = props;
-
-  let Redirect = () => {
-    window.history.pushState(
-      { collectionId },
-      "",
-      `/app/collections/${collectionId}`
-    );
-  };
 
   return (
     <>
@@ -54,21 +45,19 @@ const CollectionBlock = (props) => {
                 <span>Plant</span>
               </Button>
               <NavItem id="collection-block-nav-button">
-                <NavLink
+                <Link
                   className="nav-link-icon"
                   to={`/app/collections/${collectionId}`}
-                  tag={Route}
                 >
                   <Button
                     className="my-1 mx-2 secondary-cta"
                     onClick={() => {
                       passedDownToggleCollectionDetailsOn();
-                      Redirect();
                     }}
                   >
                     <span>Details</span>
                   </Button>
-                </NavLink>
+                </Link>
               </NavItem>
             </div>
           </CardBody>
@@ -96,7 +85,6 @@ const CollectionBlock = (props) => {
                 className="my-1 mx-2 secondary-cta"
                 onClick={() => {
                   passedDownToggleCollectionDetailsOn();
-                  Redirect();
                 }}
               >
                 <span>Details</span>

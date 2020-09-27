@@ -1,0 +1,19 @@
+/* Classes */
+.collection-container {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  height: 40%;
+  flex: none !important;
+  margin: 30px 15px !important;
+}
+
+/* IDs */
+#collection-block-image {
+  width: 80px;
+  border-radius: 50%;
+}
+
+#collection-block-nav-button {
+  list-style: none;
+}

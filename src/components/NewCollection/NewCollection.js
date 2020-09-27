@@ -82,7 +82,7 @@ class newCollectionForm extends Component {
           return (
             <>
               <Modal
-                classNamem="modal-dialog-centered"
+                className="modal-dialog-centered"
                 isOpen={this.props.isOpen}
               >
                 <Card
@@ -91,7 +91,7 @@ class newCollectionForm extends Component {
                 >
                   <CardHeader className="bg-transparent brand-logo">
                     <div className="text-center">
-                      <h2 className="title">Add a collection</h2>
+                      <h2 className="hello-user">Add a collection</h2>
                       <p className="mb-0 text-muted line-height-adjust">
                         Create a new plant collection. It can be after a
                         location in your house, or particular group of plants.
@@ -151,14 +151,14 @@ class newCollectionForm extends Component {
                       )}
                       <div className="text-center">
                         <Button
-                          className="mt-2 ml-2 mb-2"
+                          className="mt-2 ml-2 mb-2 main-cta"
                           color="primary"
                           type="submit"
                         >
-                          Add plant
+                          Add Collection
                         </Button>
                         <Button
-                          className="mt-2 mr-2 mb-2 cancel-link"
+                          className="mt-2 mr-2 mb-2 secondary-cta"
                           color="secondary"
                           onClick={() => this.toggleFormOff()}
                         >
