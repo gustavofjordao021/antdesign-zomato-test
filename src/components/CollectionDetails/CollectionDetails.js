@@ -78,7 +78,7 @@ const CollectionDetails = () => {
                             <NewPlant
                               isOpen={AddPlantMode}
                               isDone={setAddPlantMode}
-                              collectionId={collectionData.collectionId}
+                              collectionId={collectionData.collectionInfo._id}
                             />
                           </>
                         ) : (

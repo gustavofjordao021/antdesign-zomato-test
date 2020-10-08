@@ -37,7 +37,7 @@ class newPlantForm extends Component {
     plantFileName: "",
     plantImageUploaded: false,
     plantDate: "",
-    collectionId: this.props.collectionId,
+    plantCollection: this.props.collectionId,
     errorMessage: "",
     successMessage: "",
   };
