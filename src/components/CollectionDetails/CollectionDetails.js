@@ -68,8 +68,8 @@ const CollectionDetails = () => {
                           </Button>
                           <Button
                             className="my-1 mx-2 secondary-cta"
-                          //   onClick={() => setEditCollectionMode(true)}
-                          // >
+                            //   onClick={() => setEditCollectionMode(true)}
+                          >
                             <span>Edit</span>
                           </Button>
                         </div>
