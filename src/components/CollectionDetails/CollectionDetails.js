@@ -16,7 +16,7 @@ const CollectionDetails = () => {
     collectionInfo: "",
   });
 
-  const [EditCollectionMode, setEditCollectionMode] = useState(false);
+  // const [EditCollectionMode, setEditCollectionMode] = useState(false);
 
   const [AddPlantMode, setAddPlantMode] = useState(false);
 
